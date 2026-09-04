@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Parking Slots | SmartPark AI</title>
+
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- Parking Slots CSS -->
+    <link rel="stylesheet" href="css/parking-slots.css">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     MAIN PARKING CONTENT
+========================================================= -->
+
+<main>
+
+    <div class="container">
+
+
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
+
+        <header class="page-header">
+            
+    <a href="admin.html" class="back-admin-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Admin Dashboard
+    </a>
+
+            <div>
+
+                <h1>
+
+                    <i class="fa-solid fa-square-parking"></i>
+
+                    Smart Parking Center
+
+                </h1>
+
+
+                <p>
+                    Live parking map with AI powered slot monitoring.
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             PARKING LEGEND
+        ====================================================== -->
+
+        <div class="legend">
+
+
+            <!-- Available -->
+
+            <div>
+
+                <span class="green"></span>
+
+                Available
+
+            </div>
+
+
+            <!-- Occupied -->
+
+            <div>
+
+                <span class="red"></span>
+
+                Occupied
+
+            </div>
+
+
+            <!-- Reserved -->
+
+            <div>
+
+                <span class="yellow"></span>
+
+                Reserved
+
+            </div>
+
+
+            <!-- Maintenance -->
+
+            <div>
+
+                <span class="gray"></span>
+
+                Maintenance
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             AI SMART RECOMMENDATION
+        ====================================================== -->
+
+        <section class="ai-card">
+
+
+            <div class="ai-header">
+
+                <i class="fa-solid fa-robot"></i>
+
+                <h2>
+                    AI Smart Recommendation
+                </h2>
+
+            </div>
+
+
+            <div class="recommend-box">
+
+
+                <h1 id="recommendedSlot">
+                    --
+                </h1>
+
+
+                <p id="recommendReason">
+                    Calculating best slot...
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PARKING LAYOUT
+        ====================================================== -->
+
+        <div class="parking-layout">
+
+
+            <div class="parking-map">
+
+
+                <!-- ENTRY GATE -->
+
+                <div class="gate entry-gate">
+
+                    🚗 ENTRY GATE
+
+                </div>
+
+
+
+                <!-- ENTRY ROAD -->
+
+                <div class="parking-road">
+
+                    <div
+                        class="car"
+                        id="car">
+
+                        🚗
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PARKING SLOTS
+                ================================================== -->
+
+                <div class="parking-slots-grid">
+
+
+                    <!-- A1 -->
+
+                    <div
+                        class="parking-slot"
+                        id="A1"
+                        data-slot="A1">
+
+                        A1
+
+                    </div>
+
+
+                    <!-- A2 -->
+
+                    <div
+                        class="parking-slot"
+                        id="A2"
+                        data-slot="A2">
+
+                        A2
+
+                    </div>
+
+
+                    <!-- A3 -->
+
+                    <div
+                        class="parking-slot"
+                        id="A3"
+                        data-slot="A3">
+
+                        A3
+
+                    </div>
+
+
+                    <!-- B1 -->
+
+                    <div
+                        class="parking-slot"
+                        id="B1"
+                        data-slot="B1">
+
+                        B1
+
+                    </div>
+
+
+                    <!-- B2 -->
+
+                    <div
+                        class="parking-slot"
+                        id="B2"
+                        data-slot="B2">
+
+                        B2
+
+                    </div>
+
+
+                    <!-- B3 -->
+
+                    <div
+                        class="parking-slot"
+                        id="B3"
+                        data-slot="B3">
+
+                        B3
+
+                    </div>
+
+
+                    <!-- C1 -->
+
+                    <div
+                        class="parking-slot"
+                        id="C1"
+                        data-slot="C1">
+
+                        C1
+
+                    </div>
+
+
+                    <!-- C2 -->
+
+                    <div
+                        class="parking-slot"
+                        id="C2"
+                        data-slot="C2">
+
+                        C2
+
+                    </div>
+
+
+                    <!-- C3 -->
+
+                    <div
+                        class="parking-slot"
+                        id="C3"
+                        data-slot="C3">
+
+                        C3
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- EXIT ROAD -->
+
+                <div class="parking-road exit-road">
+                </div>
+
+
+
+                <!-- EXIT GATE -->
+
+                <div class="gate exit-gate">
+
+                    🚙 EXIT GATE
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+<!-- =====================================================
+     PARKING SUMMARY
+====================================================== -->
+
+<section class="parking-summary">
+
+    <div class="summary-header">
+
+        <h2>
+            <i class="fa-solid fa-chart-simple"></i>
+            Parking Summary
+        </h2>
+
+        <p>
+            Current status of all parking slots
+        </p>
+
+    </div>
+
+
+    <div class="summary-grid">
+
+        <!-- AVAILABLE -->
+
+        <div class="summary-card available-card">
+
+            <div class="summary-icon">
+                🟢
+            </div>
+
+            <div>
+
+                <span>
+                    Available
+                </span>
+
+                <strong id="availableCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- OCCUPIED -->
+
+        <div class="summary-card occupied-card">
+
+            <div class="summary-icon">
+                🔴
+            </div>
+
+            <div>
+
+                <span>
+                    Occupied
+                </span>
+
+                <strong id="occupiedCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESERVED -->
+
+        <div class="summary-card reserved-card">
+
+            <div class="summary-icon">
+                🟡
+            </div>
+
+            <div>
+
+                <span>
+                    Reserved
+                </span>
+
+                <strong id="reservedCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAINTENANCE -->
+
+        <div class="summary-card maintenance-card">
+
+            <div class="summary-icon">
+                ⚪
+            </div>
+
+            <div>
+
+                <span>
+                    Maintenance
+                </span>
+
+                <strong id="maintenanceCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- =====================================================
+             SLOT DETAILS
+        ====================================================== -->
+
+        <section class="slot-details">
+
+
+            <h2>
+                Slot Details
+            </h2>
+
+
+
+            <div class="detail-card">
+
+
+                <!-- SLOT NUMBER -->
+
+                <p>
+
+                    <strong>
+                        Slot:
+                    </strong>
+
+
+                    <span id="slotNumber">
+
+                        Select a Slot
+
+                    </span>
+
+                </p>
+
+
+
+                <!-- STATUS -->
+
+                <p>
+
+                    <strong>
+                        Status:
+                    </strong>
+
+
+                    <span id="slotStatus">
+
+                        -
+
+                    </span>
+
+                </p>
+
+
+
+                <!-- =================================================
+                     MAINTENANCE REASON
+                ================================================== -->
+
+                <p
+                    id="maintenanceReasonRow"
+                    style="display: none;"
+                >
+
+                    <strong>
+                        🛠 Maintenance Reason:
+                    </strong>
+
+
+                    <span id="maintenanceReason">
+
+                        -
+
+                    </span>
+
+                </p>
+
+
+
+                <!-- OWNER -->
+
+                <p>
+
+                    <strong>
+                        Owner:
+                    </strong>
+
+
+                    <span id="slotOwner">
+
+                        -
+
+                    </span>
+
+                </p>
+
+
+
+                <!-- VEHICLE -->
+
+                <p>
+
+                    <strong>
+                        Vehicle:
+                    </strong>
+
+
+                    <span id="slotVehicle">
+
+                        -
+
+                    </span>
+
+                </p>
+
+
+
+                <!-- BOOKED TIME -->
+
+                <p>
+
+                    <strong>
+                        Booked Time:
+                    </strong>
+
+
+                    <span id="slotTime">
+
+                        -
+
+                    </span>
+
+                </p>
+
+
+
+                <!-- =================================================
+                     RESERVE SLOT
+                ================================================== -->
+
+                <button
+    id="reserveBtn"
+    class="reserve-btn"
+    type="button"
+    style="display: none;">
+
+    🅿 Reserve Slot
+
+</button>
+
+
+
+                <!-- =================================================
+                     RELEASE SLOT
+                ================================================== -->
+
+               <button
+    id="releaseBtn"
+    class="release-btn"
+    type="button"
+    style="display: none;">
+
+    🚪 Release Slot
+
+</button>
+
+
+
+                <!-- =================================================
+                     MAINTENANCE ACTION
+                ================================================== -->
+
+     <button
+    id="maintenanceBtn"
+    class="maintenance-btn"
+    type="button"
+    style="display: none;">
+
+    🛠 Mark as Maintenance
+
+</button>
+
+
+
+                <!-- =================================================
+                     CLEAR MAINTENANCE
+                ================================================== -->
+
+               <button
+    id="clearMaintenanceBtn"
+    class="maintenance-clear-btn"
+    type="button"
+    style="display: none;">
+
+    ✅ Mark as Available
+
+</button>
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script
+    type="module"
+    src="js/parking-slots.js">
+</script>
+
+
+</body>
+
+</html>

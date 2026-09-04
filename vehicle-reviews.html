@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SmartPark - Vehicle Reviews</title>
+
+    <link
+    rel="stylesheet"
+    href="css/vehicle-reviews.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="review-page">
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div class="header-icon">
+
+                <i class="fa-solid fa-flag"></i>
+
+            </div>
+           
+            <div>
+
+                <h1>
+                    Vehicle Reviews
+                </h1>
+
+                <p>
+                    Review vehicles that are not registered
+                    in the apartment database.
+                </p>
+
+            </div>
+              <a href="admin.html"
+           class="back-admin-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Admin Dashboard
+
+        </a>
+
+        </header>
+
+
+        <!-- SUMMARY -->
+
+        <section class="review-summary">
+
+            <div class="summary-card">
+
+                <span>
+                    Pending Reviews
+                </span>
+
+                <strong id="pendingCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>
+                    Reviewed
+                </span>
+
+                <strong id="reviewedCount">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- REVIEW LIST -->
+
+        <section class="reviews-container">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Pending Vehicle Reviews
+                    </h2>
+
+                    <p>
+                        Unknown vehicles reported by
+                        the verification system.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="refreshReviewsBtn"
+                    class="refresh-btn"
+                >
+
+                    <i class="fa-solid fa-rotate"></i>
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="vehicleReviewsList"
+                class="vehicle-reviews-list"
+            >
+
+                <div class="loading-state">
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                    Loading reviews...
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="js/vehicle-reviews.js"></script>
+
+</body>
+
+</html>

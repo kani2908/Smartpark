@@ -1,0 +1,594 @@
+/* =========================================
+   SMARTPARK AI - USERS MANAGEMENT
+========================================= */
+
+body{
+
+    background:#0B1120;
+
+    color:white;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+.container{
+
+    width:95%;
+
+    max-width:1600px;
+
+    margin:auto;
+
+    padding:40px;
+
+}
+
+/* ===========================
+   PAGE HEADER
+=========================== */
+
+.page-header{
+
+    margin-bottom:35px;
+
+}
+
+.page-header h1{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.page-header p{
+
+    color:#94A3B8;
+
+    font-size:17px;
+
+}
+
+/* ===========================
+   STATISTICS
+=========================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:24px;
+
+    margin-bottom:35px;
+
+}
+
+.stat-card{
+
+    background:#111827;
+
+    border:1px solid #1F2937;
+
+    border-radius:18px;
+
+    padding:26px;
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#2563EB;
+
+}
+
+.stat-card h4{
+
+    color:#94A3B8;
+
+    margin-bottom:10px;
+
+    font-size:16px;
+
+}
+
+.stat-card h2{
+
+    font-size:38px;
+
+    font-weight:700;
+
+}
+
+/* ===========================
+   SEARCH
+=========================== */
+
+.search-section{
+
+    margin-bottom:35px;
+
+}
+
+.search-section input{
+
+    width:100%;
+
+    padding:16px 20px;
+
+    border-radius:14px;
+
+    border:1px solid #334155;
+
+    background:#111827;
+
+    color:white;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+.search-section input:focus{
+
+    border-color:#2563EB;
+
+}
+
+/* ===========================
+   USERS GRID
+=========================== */
+
+.users-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(380px,1fr));
+
+    gap:25px;
+
+}
+
+/* ===========================
+   USER CARD
+=========================== */
+
+.user-card{
+
+    background:#1B2435;
+
+    border:1px solid #2D3A4E;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    transition:.3s;
+
+}
+
+.user-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#2563EB;
+
+}
+
+/* ===========================
+   AVATAR
+=========================== */
+
+.user-avatar{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.user-content h2{
+
+    margin-bottom:18px;
+
+    font-size:24px;
+
+}
+
+.user-content p{
+
+    margin:10px 0;
+
+    color:#CBD5E1;
+
+}
+
+/* ===========================
+   STATUS BADGES
+=========================== */
+
+.status-badge{
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+}
+
+.status-approved{
+
+    background:#22C55E;
+
+    color:white;
+
+}
+
+.status-pending{
+
+    background:#FACC15;
+
+    color:#111827;
+
+}
+
+.status-rejected{
+
+    background:#EF4444;
+
+    color:white;
+
+}
+
+/* ===========================
+   ACTION BUTTONS
+=========================== */
+
+.user-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.view-btn{
+
+    flex:1;
+
+    background:#2563EB;
+
+}
+
+.delete-btn{
+
+    flex:1;
+
+    background:#EF4444;
+
+}
+
+.user-actions button{
+
+    border:none;
+
+    padding:12px;
+
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.user-actions button:hover{
+
+    opacity:.9;
+
+}
+
+/* ===========================
+   EMPTY STATE
+=========================== */
+
+.empty-state{
+
+    text-align:center;
+
+    margin-top:60px;
+
+    padding:60px;
+
+    border:1px dashed #334155;
+
+    border-radius:20px;
+
+    background:#111827;
+
+}
+
+.empty-state i{
+
+    font-size:60px;
+
+    color:#2563EB;
+
+    margin-bottom:20px;
+
+}
+
+.empty-state h2{
+
+    margin-bottom:10px;
+
+}
+
+.empty-state p{
+
+    color:#94A3B8;
+
+}
+/* =========================================
+   RESIDENT DETAILS MODAL
+========================================= */
+
+.user-modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(2, 6, 23, 0.78);
+
+    padding: 20px;
+}
+
+
+.user-modal.show {
+    display: flex;
+}
+
+
+.user-modal-content {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+
+    padding: 32px;
+
+    background: #111827;
+
+    border: 1px solid #334155;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+
+.close-modal-btn {
+
+    position: absolute;
+
+    top: 16px;
+    right: 16px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #1e293b;
+
+    color: #cbd5e1;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+.close-modal-btn:hover {
+
+    background: #ef4444;
+
+    color: white;
+
+}
+
+
+.modal-user-avatar {
+
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 16px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: 700;
+}
+
+
+.user-modal-content h2 {
+
+    margin: 0 0 12px;
+
+    color: white;
+
+}
+
+
+.modal-user-details {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 28px;
+
+    text-align: left;
+}
+
+
+.modal-detail {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    background: #1e293b;
+
+    border-radius: 10px;
+}
+
+
+.modal-detail i {
+
+    width: 22px;
+
+    color: #60a5fa;
+
+    text-align: center;
+}
+
+
+.modal-detail span {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+.modal-detail strong {
+
+    display: block;
+
+    color: white;
+
+    font-size: 14px;
+
+    word-break: break-word;
+}
+
+
+.modal-close-btn {
+
+    width: 100%;
+
+    margin-top: 24px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.modal-close-btn:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+@media (max-width: 600px) {
+
+    .modal-user-details {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .user-modal-content {
+
+        padding: 24px;
+
+    }
+
+}

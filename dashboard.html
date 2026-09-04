@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/user-ai-assistant.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+</head>
+
+<body>
+
+    <div class="container">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+    <header class="dashboard-header">
+
+        <!-- LEFT SIDE -->
+        <div class="header-left">
+
+            <div class="dashboard-logo">
+                <div class="logo-circle">
+                    <i class="fa-solid fa-square-parking"></i>
+                </div>
+            </div>
+
+            <div>
+                <h1>SmartPark AI</h1>
+                <p>AI Enabled Secure Parking Dashboard</p>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="header-right">
+
+            <!-- =================================================
+                 NOTIFICATION BELL
+            ================================================== -->
+            <div class="notification-wrapper">
+
+                <button
+                    id="notificationBtn"
+                    class="notification-btn"
+                    type="button"
+                    aria-label="Notifications"
+                >
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span
+                        id="notificationCount"
+                        class="notification-count"
+                        style="display: none;"
+                    >
+                        0
+                    </span>
+
+                </button>
+
+
+                <!-- Notification Panel -->
+                <div
+                    id="notificationPanel"
+                    class="notification-panel"
+                >
+
+                    <!-- Panel Header -->
+                    <div class="notification-header">
+
+                        <div>
+                            <h3>Notifications</h3>
+
+                            <span>
+                                Admin replies
+                            </span>
+                        </div>
+
+                        <button
+                            id="closeNotificationBtn"
+                            type="button"
+                            aria-label="Close notifications"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <!-- Notification List -->
+                    <div
+                        id="notificationList"
+                        class="notification-list"
+                    >
+
+                        <div class="no-notifications">
+
+                            <i class="fa-regular fa-bell-slash"></i>
+
+                            <p>
+                                No new notifications.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 USER INFORMATION
+            ================================================== -->
+            <div class="user-info">
+
+                <div class="avatar">
+                    K
+                </div>
+
+                <div>
+
+                    <h4 id="welcome">
+                        Welcome
+                    </h4>
+
+                    <small>
+                        User
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO BANNER
+    ====================================================== -->
+    <section class="hero-banner">
+
+        <div>
+
+            <h2>
+                Welcome Back 👋
+            </h2>
+
+            <p>
+                Find, Book and Manage Parking Easily using SmartPark AI.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-btn"
+            type="button"
+        >
+            Book Parking
+        </button>
+
+    </section>
+
+
+    <!-- =====================================================
+         STATISTICS
+    ====================================================== -->
+    <section class="stats-grid">
+
+        <!-- Available Slots -->
+        <div class="stat-card">
+
+            <h3>
+                Available Slots
+            </h3>
+
+            <span id="availableCount">
+                0
+            </span>
+
+        </div>
+
+
+        <!-- Occupied Slots -->
+        <div class="stat-card">
+
+            <h3>
+                Occupied Slots
+            </h3>
+
+            <span id="occupiedCount">
+                0
+            </span>
+
+        </div>
+
+
+        <!-- Active Bookings -->
+        <div class="stat-card">
+
+            <h3>
+                Active Bookings
+            </h3>
+
+            <span id="bookingCount">
+                0
+            </span>
+
+        </div>
+
+
+        <!-- Booking History -->
+        <div class="stat-card">
+
+            <h3>
+                Booking History
+            </h3>
+
+            <span id="historyCount">
+                0
+            </span>
+
+        </div>
+
+    </section>
+
+        <!-- User Profile -->
+        <section class="section">
+
+            <div class="section-header">
+                <h2>👤 Profile Overview</h2>
+            </div>
+
+            <div class="profile-card">
+
+               <div class="profile-grid">
+
+    <div class="profile-box">
+        <span>👤 Full Name</span>
+        <h3 id="name"></h3>
+    </div>
+
+    <div class="profile-box">
+        <span>📧 Email</span>
+        <h3 id="email"></h3>
+    </div>
+
+    <div class="profile-box">
+        <span>📱 Phone</span>
+        <h3 id="phone"></h3>
+    </div>
+
+    <div class="profile-box">
+        <span>🚗 Vehicle</span>
+        <h3 id="vehicle"></h3>
+    </div>
+
+    <div class="profile-box">
+        <span>🏠 Door No.</span>
+        <h3 id="door"></h3>
+    </div>
+
+    <div class="profile-box">
+        <span>🛡 Role</span>
+        <h3 id="role"></h3>
+    </div>
+
+</div>
+<!-- =====================================================
+     MY VEHICLES
+====================================================== -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+            🚗 My Vehicles
+        </h2>
+
+        <p>
+            Manage all vehicles registered to your account.
+        </p>
+
+    </div>
+
+
+    <!-- Existing vehicles -->
+
+    <div
+        id="vehiclesContainer"
+        class="grid-container">
+
+    </div>
+
+
+    <!-- Add vehicle -->
+<div class="vehicle-add-box">
+
+    <h3>
+        <i class="fa-solid fa-plus"></i>
+        Add Vehicle
+    </h3>
+
+    <div class="vehicle-add-grid">
+
+        <!-- Vehicle Number -->
+
+        <div class="form-group">
+
+            <label>Vehicle Number</label>
+
+            <input
+                type="text"
+                id="newVehicleNumber"
+                placeholder="TN22EJ3343"
+            >
+
+        </div>
+
+
+        <!-- Vehicle Photo -->
+
+        <div class="form-group">
+
+            <label>Vehicle Photo</label>
+
+            <input
+                type="file"
+                id="newVehicleImage"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <!-- Vehicle Type -->
+
+        <div class="form-group">
+
+            <label>Vehicle Type</label>
+
+            <select id="newVehicleType">
+
+                <option value="car">
+                    🚗 Car
+                </option>
+
+                <option value="bike">
+                    🏍️ Bike
+                </option>
+
+                <option value="scooter">
+                    🛵 Scooter
+                </option>
+
+                <option value="other">
+                    🚙 Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Brand -->
+
+        <div class="form-group">
+
+            <label>Vehicle Brand</label>
+
+            <input
+                type="text"
+                id="newVehicleBrand"
+                placeholder="Honda"
+            >
+
+        </div>
+
+
+        <!-- Model -->
+
+        <div class="form-group">
+
+            <label>Vehicle Model</label>
+
+            <input
+                type="text"
+                id="newVehicleModel"
+                placeholder="Activa"
+            >
+
+        </div>
+
+
+        <!-- Color -->
+
+        <div class="form-group">
+
+            <label>Vehicle Color</label>
+
+            <input
+                type="text"
+                id="newVehicleColor"
+                placeholder="Black"
+            >
+
+        </div>
+
+    </div>
+
+
+    <button
+        type="button"
+        id="addVehicleBtn"
+        class="primary-btn">
+
+        <i class="fa-solid fa-plus"></i>
+        Add Vehicle
+
+    </button>
+
+</div>
+
+</section>
+
+<div class="profile-footer">
+
+    <button id="editProfileBtn" class="primary-btn">
+
+        <i class="fa-solid fa-pen"></i>
+
+        Edit Profile
+
+    </button>
+
+</div>
+
+        </section>
+
+        <!-- Parking Slots -->
+        <section class="section">
+
+            <div class="section-header">
+                <h2>🅿 Parking Slots</h2>
+                <p>Select an available slot</p>
+            </div>
+
+            <div id="slotsContainer" class="grid-container"></div>
+
+        </section>
+
+        <!-- My Bookings -->
+        <section class="section">
+
+            <div class="section-header">
+                <h2>🚗 Active Booking</h2>
+            </div>
+
+            <div id="bookingContainer" class="grid-container"></div>
+
+            <hr>
+
+            <div class="section-header">
+                <h2>📜 Booking History</h2>
+            </div>
+
+            <div id="historyContainer" class="grid-container"></div>
+<!-- ================= VISITOR REGISTRATION ================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>🧍 Register Visitor</h2>
+
+        <p>
+            Pre-register visitors before they arrive.
+        </p>
+
+    </div>
+
+
+    <div class="visitor-form">
+
+        <div class="form-grid">
+
+            <!-- Visitor Name -->
+            <input
+                type="text"
+                id="visitorName"
+                placeholder="Visitor Name"
+                required>
+
+
+            <!-- Phone Number -->
+            <input
+                type="tel"
+                id="visitorPhone"
+                placeholder="Phone Number"
+                required>
+
+
+            <!-- Vehicle Number -->
+            <input
+                type="text"
+                id="visitorVehicle"
+                placeholder="Vehicle Number (Optional)">
+
+
+            <!-- Purpose -->
+            <input
+                type="text"
+                id="visitorPurpose"
+                placeholder="Purpose of Visit"
+                required>
+
+
+            <!-- Visitor Slot -->
+            <select id="visitorSlot">
+
+                <option value="">
+                    No Visitor Slot
+                </option>
+
+                <option value="V1">
+                    Visitor Slot V1
+                </option>
+
+                <option value="V2">
+                    Visitor Slot V2
+                </option>
+
+                <option value="V3">
+                    Visitor Slot V3
+                </option>
+
+            </select>
+
+
+            <!-- Visit Date -->
+            <input
+                type="date"
+                id="visitDate"
+                required>
+
+
+            <!-- Arrival Time -->
+            <input
+                type="time"
+                id="arrivalTime"
+                required>
+
+        </div>
+
+
+        <!-- Register Visitor -->
+
+        <button
+            type="button"
+            id="registerVisitorBtn"
+            class="primary-btn">
+
+            <i class="fa-solid fa-user-check"></i>
+
+            Register Visitor
+
+        </button>
+
+    </div>
+
+</section>
+        </section>
+        <!-- =====================================================
+     CONTACT ADMIN / HELP & SUPPORT
+====================================================== -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+            💬 Help & Support
+        </h2>
+
+        <p>
+            Need help with parking, booking, vehicles or your account?
+        </p>
+
+    </div>
+
+
+    <div class="support-card">
+
+        <div class="support-icon">
+            <i class="fa-solid fa-headset"></i>
+        </div>
+
+        <div class="support-content">
+
+            <h3>
+                Need Assistance?
+            </h3>
+
+            <p>
+                Contact the SmartPark administrator
+                if you have any problem or need help.
+            </p>
+
+            <button
+                type="button"
+                id="contactAdminBtn"
+                class="primary-btn"
+            >
+
+                <i class="fa-solid fa-message"></i>
+
+                Contact Admin
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- Logout -->
+        <div class="logout-section">
+            <button id="logoutBtn" class="danger-btn">Logout</button>
+        </div>
+
+    </div>
+
+    <script type="module" src="js/dashboard.js"></script>
+    <script
+    type="module"
+    src="js/user-ai-assistant.js"></script>
+
+    <div id="editModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2>Edit Profile</h2>
+
+            <input type="text" id="editName" placeholder="Full Name">
+            <input type="text" id="editPhone" placeholder="Phone">
+            <input type="text" id="editVehicle" placeholder="Vehicle Number">
+            <input type="text" id="editDoor" placeholder="Door Number">
+
+            <div class="modal-buttons">
+                <button id="saveProfileBtn" class="primary-btn">Save Changes</button>
+                <button id="closeModal" class="danger-btn">Cancel</button>
+            </div>
+
+        </div>
+
+    </div>
+<!-- =====================================================
+     CONTACT ADMIN / HELP & SUPPORT MODAL
+===================================================== -->
+
+<div id="supportModal" class="modal">
+
+    <div class="modal-content support-modal">
+
+        <!-- Header -->
+
+        <div class="support-modal-header">
+
+            <div>
+
+                <h2>
+                    💬 Contact SmartPark Admin
+                </h2>
+
+                <p>
+                    Tell us how we can help you.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeSupportModal"
+                class="support-close-btn"
+                aria-label="Close"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- Category -->
+
+        <div class="form-group">
+
+            <label for="supportCategory">
+                Problem Category
+            </label>
+
+            <select id="supportCategory">
+
+                <option value="">
+                    Select a category
+                </option>
+
+                <option value="Parking Slot">
+                    🅿️ Parking Slot
+                </option>
+
+                <option value="Booking">
+                    📅 Booking Problem
+                </option>
+
+                <option value="Vehicle">
+                    🚗 Vehicle
+                </option>
+
+                <option value="Visitor">
+                    🧍 Visitor
+                </option>
+
+                <option value="Account">
+                    👤 Account
+                </option>
+
+                <option value="Technical Issue">
+                    🔧 Technical Issue
+                </option>
+
+                <option value="Other">
+                    ❓ Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Subject -->
+
+        <div class="form-group">
+
+            <label for="supportSubject">
+                Subject
+            </label>
+
+            <input
+                type="text"
+                id="supportSubject"
+                placeholder="Example: Parking slot problem"
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- Message -->
+
+        <div class="form-group">
+
+            <label for="supportMessage">
+                Message
+            </label>
+
+            <textarea
+                id="supportMessage"
+                rows="5"
+                placeholder="Explain your problem..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="modal-buttons">
+
+            <button
+                type="button"
+                id="sendSupportMessageBtn"
+                class="primary-btn"
+            >
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Send Message
+
+            </button>
+
+
+            <button
+                type="button"
+                id="cancelSupportBtn"
+                class="danger-btn"
+            >
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- Toast Notifications -->
+<div id="toastContainer" class="toast-container"></div>
+<!-- =========================================================
+     SMARTPARK AI - USER DASHBOARD FLOATING ASSISTANT
+========================================================= -->
+
+<div id="smartparkAiWidget" class="smartpark-ai-widget">
+
+    <!-- FLOATING BUTTON -->
+
+    <button
+        id="smartparkAiLauncher"
+        class="smartpark-ai-launcher"
+        type="button"
+        aria-label="Open SmartPark AI"
+    >
+
+        <div class="smartpark-ai-avatar">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+
+        <div class="smartpark-ai-launcher-text">
+
+            <strong>SmartPark AI</strong>
+
+            <span>Need help?</span>
+
+        </div>
+
+    </button>
+
+
+    <!-- CHAT WINDOW -->
+
+    <div
+        id="smartparkAiPanel"
+        class="smartpark-ai-panel"
+        aria-hidden="true"
+    >
+
+        <!-- HEADER -->
+
+        <div class="smartpark-ai-header">
+
+            <div class="smartpark-ai-header-left">
+
+                <div class="smartpark-ai-avatar small">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        SmartPark AI
+                    </strong>
+
+                    <span class="smartpark-ai-online">
+
+                        <span class="online-dot"></span>
+
+                        Online
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="smartparkAiClose"
+                class="smartpark-ai-close"
+                type="button"
+                aria-label="Close SmartPark AI"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- CHAT MESSAGES -->
+
+        <div
+            id="smartparkAiMessages"
+            class="smartpark-ai-messages"
+        >
+
+            <div class="smartpark-ai-message bot">
+
+                <div class="smartpark-message-icon">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                </div>
+
+                <div class="smartpark-message-content">
+
+                    <strong>
+                        SmartPark AI
+                    </strong>
+
+                    <p>
+                        Hello! 👋
+                    </p>
+
+                    <p>
+                        I'm your SmartPark assistant.
+                        I can help you with your parking,
+                        bookings and registered vehicles.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <div class="smartpark-ai-quick-actions">
+
+            <button
+                type="button"
+                class="smartpark-ai-quick-btn"
+                data-question="Are there any parking slots available?"
+            >
+                🅿️ Available Slots
+            </button>
+
+            <button
+                type="button"
+                class="smartpark-ai-quick-btn"
+                data-question="What is my active booking?"
+            >
+                📅 My Booking
+            </button>
+
+            <button
+                type="button"
+                class="smartpark-ai-quick-btn"
+                data-question="Show my registered vehicles."
+            >
+                🚗 My Vehicles
+            </button>
+
+            <button
+                type="button"
+                class="smartpark-ai-quick-btn"
+                data-question="Show my booking history."
+            >
+                📜 Booking History
+            </button>
+
+        </div>
+
+        <!-- =====================================================
+     HUMAN ADMIN SUPPORT
+====================================================== -->
+
+<div class="smartpark-support-entry">
+
+    <button
+        type="button"
+        id="openSupportChatBtn"
+        class="smartpark-support-btn"
+    >
+
+        <span class="smartpark-support-icon">
+            <i class="fa-solid fa-headset"></i>
+        </span>
+
+        <span class="smartpark-support-text">
+
+            <strong>
+                Contact Admin
+            </strong>
+
+            <small>
+                Need help from a SmartPark administrator?
+            </small>
+
+        </span>
+
+        <span
+            id="supportUnreadBadge"
+            class="support-unread-badge"
+            style="display:none;"
+        >
+            0
+        </span>
+
+    </button>
+
+</div>
+
+
+        <!-- INPUT -->
+
+        <div class="smartpark-ai-input-area">
+
+            <input
+                type="text"
+                id="smartparkAiInput"
+                placeholder="Ask SmartPark AI..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="smartparkAiSend"
+                aria-label="Send message"
+            >
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =====================================================
+     SMARTPARK ADMIN SUPPORT CHAT
+====================================================== -->
+
+<div
+    id="userSupportChat"
+    class="user-support-chat"
+    style="display:none;"
+>
+
+    <!-- HEADER -->
+
+    <div class="user-support-header">
+
+        <div class="user-support-header-info">
+
+            <div class="user-support-avatar">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+
+            <div>
+
+                <strong>
+                    SmartPark Support
+                </strong>
+
+                <span>
+                    <i class="fa-solid fa-circle"></i>
+                    Admin assistance
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="closeSupportChatBtn"
+            class="user-support-close"
+            aria-label="Close support chat"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+
+    <!-- REQUEST INFORMATION -->
+
+    <div
+        id="userSupportRequestInfo"
+        class="user-support-request-info"
+    >
+
+        <strong>
+            Support Request
+        </strong>
+
+        <span id="userSupportSubject">
+            No active request
+        </span>
+
+        <span
+            id="userSupportStatus"
+            class="user-support-status"
+        >
+            —
+        </span>
+
+    </div>
+
+
+    <!-- CONVERSATION -->
+
+    <div
+        id="userSupportMessages"
+        class="user-support-messages"
+    >
+
+        <div class="support-loading">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Loading conversation...
+
+        </div>
+
+    </div>
+
+
+    <!-- REPLY -->
+
+    <div class="user-support-input-area">
+
+        <textarea
+            id="userSupportInput"
+            rows="2"
+            placeholder="Type your message to the administrator..."
+        ></textarea>
+
+        <button
+            type="button"
+            id="sendUserSupportReplyBtn"
+        >
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            Send
+
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

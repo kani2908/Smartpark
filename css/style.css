@@ -1,0 +1,115 @@
+/* ==========================================================
+   STYLE.CSS
+   Global styles only — reset, body, container, typography,
+   generic elements. NOTHING page-specific lives here.
+   ========================================================== */
+
+@import url("variables.css");
+@import url("components.css");
+
+/* ---------- Reset ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:var(--font-family);
+}
+
+/* ---------- Body ---------- */
+
+body{
+    background:var(--bg-primary);
+    color:var(--text-primary);
+    min-height:100vh;
+    padding:var(--space-lg);
+}
+
+/* ---------- Container ---------- */
+
+.container{
+    width:95%;
+    max-width:1500px;
+    margin:auto;
+}
+
+/* ---------- Typography ---------- */
+
+h1,h2,h3{
+    color:inherit;
+    font-weight:600;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:var(--space-md);
+}
+
+h2{
+    margin:var(--space-md) 0;
+}
+
+h3{
+    margin-bottom:var(--space-sm);
+}
+
+p{
+    margin:10px 0;
+    color:var(--text-secondary);
+}
+
+hr{
+    margin:var(--space-md) 0;
+    border:none;
+    border-top:1px solid var(--border-color);
+}
+
+/* ---------- Links ---------- */
+
+a{
+    color:var(--accent-blue-light);
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+/* ---------- Generic Buttons ---------- */
+/* Fallback style for any plain <button> without a component
+   class (e.g. index.html's Login/Register buttons) */
+
+button{
+    border:none;
+    cursor:pointer;
+    font-size:var(--font-size-md);
+    font-family:inherit;
+    background:var(--accent-blue);
+    color:#fff;
+    padding:10px 18px;
+    border-radius:var(--radius-sm);
+    transition:var(--transition-fast);
+}
+
+button:hover{
+    opacity:0.95;
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--border-color-light);
+    border-radius:var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--text-muted);
+}

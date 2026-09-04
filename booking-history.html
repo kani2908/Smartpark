@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Booking History | SmartPark AI</title>
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <!-- Booking History CSS -->
+    <link
+        rel="stylesheet"
+        href="css/booking-history.css"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main class="booking-main">
+
+
+    <div class="booking-container">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="booking-page-header">
+
+
+            <a
+                href="admin.html"
+                class="back-button"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Admin Dashboard
+
+            </a>
+
+
+            <div class="booking-title">
+
+                <div class="booking-title-icon">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h1>
+                        Booking History
+                    </h1>
+
+                    <p>
+                        View and manage all SmartPark parking bookings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="booking-stats">
+
+
+            <div class="booking-stat-card">
+
+                <div class="stat-icon total">
+
+                    <i class="fa-solid fa-calendar"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Bookings
+                    </span>
+
+                    <strong id="totalBookings">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="booking-stat-card">
+
+                <div class="stat-icon active">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Active
+                    </span>
+
+                    <strong id="activeBookings">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="booking-stat-card">
+
+                <div class="stat-icon reserved">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Reserved
+                    </span>
+
+                    <strong id="reservedBookings">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="booking-stat-card">
+
+                <div class="stat-icon completed">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Completed
+                    </span>
+
+                    <strong id="completedBookings">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="booking-stat-card">
+
+                <div class="stat-icon cancelled">
+
+                    <i class="fa-solid fa-circle-xmark"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Cancelled
+                    </span>
+
+                    <strong id="cancelledBookings">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTER / SEARCH
+        ================================================== -->
+
+        <section class="booking-controls">
+
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="bookingSearch"
+                    placeholder="Search by vehicle, name or slot..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+
+            <div class="filter-box">
+
+                <i class="fa-solid fa-filter"></i>
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="active">
+                        Active
+                    </option>
+
+                    <option value="reserved">
+                        Reserved
+                    </option>
+
+                    <option value="completed">
+                        Completed
+                    </option>
+
+                    <option value="cancelled">
+                        Cancelled
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                id="refreshBookingsBtn"
+                class="refresh-button"
+                type="button"
+            >
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Refresh
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOOKING LIST
+        ================================================== -->
+
+        <section class="booking-list-section">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+
+                        <i class="fa-solid fa-list"></i>
+
+                        All Bookings
+
+                    </h2>
+
+                    <p id="bookingResultText">
+                        Loading bookings...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Loading -->
+
+            <div
+                id="bookingLoading"
+                class="booking-loading"
+            >
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                <p>
+                    Loading booking history...
+                </p>
+
+            </div>
+
+
+
+            <!-- Booking Cards -->
+
+            <div
+                id="bookingsContainer"
+                class="bookings-container"
+            ></div>
+
+
+
+            <!-- Empty State -->
+
+            <div
+                id="bookingEmpty"
+                class="booking-empty"
+                style="display:none;"
+            >
+
+                <div class="empty-icon">
+
+                    <i class="fa-solid fa-calendar-xmark"></i>
+
+                </div>
+
+                <h3>
+                    No Bookings Found
+                </h3>
+
+                <p>
+                    There are no bookings matching your search.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             ERROR MESSAGE
+        ================================================== -->
+
+        <div
+            id="bookingError"
+            class="booking-error"
+            style="display:none;"
+        >
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <span>
+                Unable to load booking history.
+            </span>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script
+    type="module"
+    src="js/booking-history.js"
+></script>
+
+
+</body>
+
+</html>

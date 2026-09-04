@@ -1,0 +1,1609 @@
+@import url("variables.css");
+@import url("components.css");
+
+/* =========================================================
+   SMARTPARK AI - PARKING SLOTS
+   CLEAN COMPLETE CSS
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #0f172a;
+    color: #ffffff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    zoom: 1 !important;
+}
+
+
+/* =========================================================
+   ADMIN SIDEBAR
+   ========================================================= */
+
+.admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 220px;
+    min-width: 220px;
+    height: 100vh;
+
+    background: #0f172a;
+    border-right: 1px solid #1e293b;
+
+    padding: 20px 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1000;
+
+    box-sizing: border-box;
+
+    transform: none !important;
+    zoom: 1 !important;
+}
+
+
+/* =========================================================
+   SIDEBAR LOGO
+   ========================================================= */
+
+.admin-sidebar .logo,
+.admin-sidebar .sidebar-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 24px;
+    padding: 0 8px 24px;
+
+    color: #ffffff;
+
+    white-space: nowrap;
+}
+
+.admin-sidebar .logo h1,
+.admin-sidebar .sidebar-logo span {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.admin-sidebar .logo span:first-child {
+    font-size: 22px;
+}
+
+.admin-sidebar .logo-box {
+    width: 22px;
+    height: 22px;
+
+    display: grid;
+    place-items: center;
+
+    background: #ffffff;
+    color: #2563eb;
+
+    border-radius: 4px;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+.admin-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.admin-sidebar nav a {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 12px 11px;
+
+    border-radius: 9px;
+
+    color: #e2e8f0;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    line-height: normal;
+
+    box-sizing: border-box;
+
+    transition: 0.2s ease;
+}
+
+.admin-sidebar nav a i {
+    width: 18px;
+    min-width: 18px;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+.admin-sidebar nav a:hover {
+    background: #1e40af;
+    color: #ffffff;
+}
+
+.admin-sidebar nav a.active {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 6px;
+
+    border-top: 1px solid #26344d;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+.sidebar-user strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 12px;
+}
+
+.sidebar-user small {
+    display: block;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #ef4444;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    padding: 8px 6px;
+}
+
+
+/* =========================================================
+   MAIN PARKING CONTENT
+   ========================================================= */
+
+.parking-main {
+    margin-left: 220px;
+
+    width: calc(100% - 220px);
+
+    min-height: 100vh;
+
+    padding: 36px 42px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.parking-main .container,
+.parking-container {
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    transform: none !important;
+    zoom: 1 !important;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.page-header h1 i {
+    color: #60a5fa;
+
+    margin-right: 7px;
+}
+
+.page-header p {
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   LEGEND
+   ========================================================= */
+
+.legend {
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+
+    margin-bottom: 24px;
+
+    flex-wrap: wrap;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: #cbd5e1;
+
+    font-size: 12px;
+}
+
+.legend span {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+}
+
+.green {
+    background: #22c55e;
+}
+
+.red {
+    background: #ef4444;
+}
+
+.yellow {
+    background: #facc15;
+}
+
+.gray {
+    background: #6b7280;
+}
+
+
+/* =========================================================
+   AI RECOMMENDATION
+   ========================================================= */
+
+.ai-card,
+.ai-recommendation {
+    width: 100%;
+
+    background: #111a2b;
+
+    border: 1px solid #1e293b;
+
+    border-radius: 14px;
+
+    padding: 24px;
+
+    margin-bottom: 24px;
+
+    box-sizing: border-box;
+}
+
+.ai-header {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #3b82f6;
+}
+
+.ai-header i {
+    font-size: 16px;
+}
+
+.ai-header h2 {
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+.recommend-box {
+    text-align: center;
+
+    margin-top: 18px;
+}
+
+.recommend-box h1 {
+    font-size: 44px;
+
+    color: #22c55e;
+}
+
+.recommend-box p {
+    margin-top: 5px;
+
+    color: #cbd5e1;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   PARKING LAYOUT
+   ========================================================= */
+
+.parking-layout {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 24px;
+}
+
+
+/* =========================================================
+   PARKING MAP
+   ========================================================= */
+
+.parking-map {
+    position: relative;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+
+    background: #111a2b;
+
+    border: 1px solid #26344d;
+
+    border-radius: 14px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   GATES
+   ========================================================= */
+
+.gate {
+    width: 100%;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #202c40;
+
+    color: #ffffff;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    box-sizing: border-box;
+}
+
+.entry-gate {
+    border-left: 4px solid #22c55e;
+}
+
+.exit-gate {
+    margin-top: 16px;
+
+    border-left: 4px solid #ef4444;
+}
+
+
+/* =========================================================
+   PARKING ROADS
+   ========================================================= */
+
+.parking-road {
+    position: relative;
+
+    width: 100%;
+
+    height: 58px;
+
+    margin: 10px 0;
+
+    background: #374151;
+
+    border-top: 3px dashed #d1d5db;
+
+    border-bottom: 3px dashed #d1d5db;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+.exit-road {
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   CAR ANIMATION
+   ========================================================= */
+
+.car {
+    position: absolute;
+
+    left: -70px;
+    top: 10px;
+
+    font-size: 32px;
+
+    transition: left 2s ease-in-out;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   OLD STATIC PARKING GRID
+   ========================================================= */
+
+.parking-slots-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PARKING SLOT
+   ========================================================= */
+
+.parking-slot {
+    position: relative;
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    max-width: none !important;
+
+    height: 100px !important;
+
+    min-height: 100px !important;
+
+    margin: 0 !important;
+
+    padding: 15px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    flex-direction: column !important;
+
+    box-sizing: border-box !important;
+
+    border-radius: 10px;
+
+    background: #22c55e;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    border: 3px solid transparent;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+
+    overflow: hidden;
+}
+
+.parking-slot:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   DYNAMIC PARKING GRID
+   THIS IS THE IMPORTANT PART
+   ========================================================= */
+
+.dynamic-parking-slots {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 16px !important;
+
+    width: 100% !important;
+
+    max-width: none !important;
+
+    margin: 18px 0 !important;
+
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    flex: none !important;
+
+    align-self: stretch !important;
+
+    order: 10 !important;
+}
+
+
+/* =========================================================
+   DYNAMIC PARKING SLOT
+   ========================================================= */
+
+.dynamic-parking-slots > .parking-slot,
+.dynamic-parking-slots .parking-slot {
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    max-width: none !important;
+
+    height: 100px !important;
+
+    min-height: 100px !important;
+
+    margin: 0 !important;
+
+    padding: 15px !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    border-radius: 10px !important;
+
+    font-size: 20px !important;
+
+    font-weight: 700 !important;
+
+    cursor: pointer !important;
+}
+
+
+/* =========================================================
+   SLOT ICON
+   ========================================================= */
+
+.dynamic-parking-slots .parking-slot i,
+.dynamic-parking-slots .parking-slot svg {
+    font-size: 20px;
+
+    margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   SLOT CONTENT
+   ========================================================= */
+
+.slot-icon {
+    font-size: 20px;
+
+    line-height: 1;
+
+    margin-bottom: 5px;
+}
+
+.slot-vehicle {
+    font-size: 28px;
+
+    line-height: 1;
+
+    margin-bottom: 5px;
+
+    transition: transform 0.3s ease;
+}
+
+.slot-number {
+    font-size: 18px;
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SLOT STATUS COLORS
+   ========================================================= */
+
+.parking-slot.available,
+.dynamic-parking-slots
+.parking-slot[data-status="available"] {
+    background: #22c55e !important;
+
+    color: #ffffff !important;
+}
+
+.parking-slot.occupied,
+.dynamic-parking-slots
+.parking-slot[data-status="occupied"] {
+    background: #ef4444 !important;
+
+    color: #ffffff !important;
+}
+
+.parking-slot.reserved,
+.dynamic-parking-slots
+.parking-slot[data-status="reserved"] {
+    background: #facc15 !important;
+
+    color: #111827 !important;
+}
+
+.parking-slot.maintenance,
+.dynamic-parking-slots
+.parking-slot[data-status="maintenance"] {
+    background: #6b7280 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SELECTED SLOT
+   ========================================================= */
+
+.parking-slot.selected {
+    border-color: #60a5fa !important;
+
+    box-shadow:
+        0 0 25px rgba(59, 130, 246, 0.7);
+
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   AI ACTIVE / RECOMMENDED SLOT
+   ========================================================= */
+
+.parking-slot.active {
+    border-color: #60a5fa !important;
+
+    box-shadow:
+        0 0 25px rgba(59, 130, 246, 0.7);
+
+    animation: recommendedPulse 1.5s infinite;
+}
+
+@keyframes recommendedPulse {
+    0% {
+        box-shadow:
+            0 0 0 rgba(59, 130, 246, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px rgba(59, 130, 246, 0.8);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+
+/* =========================================================
+   PARKED VEHICLE
+   ========================================================= */
+
+.parked-car {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.car-arriving .slot-vehicle {
+    animation: carArrive 0.8s ease-out;
+}
+
+@keyframes carArrive {
+
+    0% {
+        transform: translateX(-25px);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateX(5px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   VEHICLE ENTRY CARD
+   ========================================================= */
+
+.vehicle-entry-card {
+    width: 100%;
+
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 14px;
+
+    padding: 24px;
+
+    margin-bottom: 24px;
+
+    box-sizing: border-box;
+}
+
+.vehicle-entry-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.vehicle-entry-header > span {
+    font-size: 22px;
+}
+
+.vehicle-entry-header h3 {
+    font-size: 18px;
+
+    color: #ffffff;
+}
+
+.vehicle-entry-header p {
+    margin-top: 4px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+.vehicle-entry-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.vehicle-entry-form label {
+    color: #cbd5e1;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.vehicle-entry-form input {
+    width: 100%;
+
+    min-height: 42px;
+
+    padding: 11px 13px;
+
+    border-radius: 7px;
+
+    border: 1px solid #334155;
+
+    background: #1e293b;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    outline: none;
+}
+
+.vehicle-entry-form input:focus {
+    border-color: #3b82f6;
+}
+
+.vehicle-entry-form input::placeholder {
+    color: #64748b;
+}
+
+.vehicle-entry-form button {
+    margin-top: 4px;
+
+    min-height: 42px;
+
+    padding: 11px 15px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.vehicle-entry-form button:hover {
+    background: #3b82f6;
+}
+
+.vehicle-entry-result {
+    margin-top: 16px;
+
+    padding: 14px;
+
+    border-radius: 8px;
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+}
+
+
+/* =========================================================
+   VEHICLE EXIT
+   ========================================================= */
+
+.vehicle-entry-section {
+    width: 100%;
+
+    margin-bottom: 24px;
+
+    padding: 24px;
+
+    background: #111b2e;
+
+    border: 1px solid #243451;
+
+    border-radius: 12px;
+
+    box-sizing: border-box;
+}
+
+.vehicle-entry-section .section-title {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    margin-bottom: 4px;
+}
+
+.vehicle-entry-section .section-subtitle {
+    font-size: 12px;
+
+    color: #9aa8bd;
+
+    margin-bottom: 16px;
+}
+
+.vehicle-entry-section label {
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: #ffffff;
+
+    margin-bottom: 7px;
+}
+
+.vehicle-input {
+    width: 100%;
+
+    height: 42px;
+
+    padding: 0 11px;
+
+    background: #1d2a40;
+
+    border: 1px solid #34445f;
+
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    outline: none;
+
+    margin-bottom: 11px;
+
+    font-size: 13px;
+}
+
+.vehicle-input:focus {
+    border-color: #2875f0;
+}
+
+.check-vehicle-btn {
+    width: 100%;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #286bea;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.check-vehicle-btn:hover {
+    background: #1f5ed5;
+}
+
+.vehicle-result {
+    width: 100%;
+
+    margin-top: 14px;
+
+    padding: 14px;
+
+    background: #1b2940;
+
+    border: 1px solid #34445f;
+
+    border-radius: 6px;
+}
+
+
+/* =========================================================
+   SLOT DETAILS
+   ========================================================= */
+
+.slot-details {
+    width: 100%;
+
+    background: #111827;
+
+    border: 1px solid #1e293b;
+
+    border-radius: 14px;
+
+    padding: 24px;
+
+    margin-bottom: 30px;
+
+    box-sizing: border-box;
+}
+
+.slot-details h2 {
+    font-size: 20px;
+
+    margin-bottom: 18px;
+}
+
+.detail-card {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.detail-card p {
+    font-size: 13px;
+
+    color: #d1d5db;
+}
+
+.detail-card strong {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   RESERVE / RELEASE / MAINTENANCE BUTTONS
+   ========================================================= */
+
+.release-btn,
+.reserve-btn,
+#maintenanceBtn,
+#clearMaintenanceBtn {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 11px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.release-btn:hover,
+.reserve-btn:hover,
+#maintenanceBtn:hover,
+#clearMaintenanceBtn:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================================
+   PARKING SUMMARY
+   ========================================================= */
+
+.parking-summary {
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 20px auto 30px;
+
+    padding: 25px;
+
+    background: #111827;
+
+    border: 1px solid #243247;
+
+    border-radius: 14px;
+
+    box-sizing: border-box;
+}
+
+.summary-header {
+    margin-bottom: 20px;
+}
+
+.summary-header h2 {
+    margin: 0 0 6px;
+
+    color: #ffffff;
+
+    font-size: 20px;
+}
+
+.summary-header h2 i {
+    margin-right: 8px;
+
+    color: #3b82f6;
+}
+
+.summary-header p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SUMMARY GRID
+   ========================================================= */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+
+/* =========================================================
+   SUMMARY CARD
+   ========================================================= */
+
+.summary-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+}
+
+.summary-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #0f172a;
+
+    font-size: 22px;
+}
+
+.summary-card span {
+    display: block;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+.summary-card strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 28px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   SUMMARY STATUS BORDERS
+   ========================================================= */
+
+.available-card {
+    border-left: 4px solid #22c55e;
+}
+
+.occupied-card {
+    border-left: 4px solid #ef4444;
+}
+
+.reserved-card {
+    border-left: 4px solid #eab308;
+}
+
+.maintenance-card {
+    border-left: 4px solid #94a3b8;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .parking-main {
+        padding: 30px;
+    }
+
+    .parking-map {
+        max-width: 100%;
+    }
+
+    .dynamic-parking-slots {
+        gap: 14px !important;
+    }
+
+    .dynamic-parking-slots .parking-slot {
+        height: 90px !important;
+        min-height: 90px !important;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .admin-sidebar {
+        width: 200px;
+        min-width: 200px;
+    }
+
+    .parking-main {
+        margin-left: 200px;
+
+        width: calc(100% - 200px);
+
+        padding: 25px 20px;
+    }
+
+    .parking-main .container {
+        max-width: 100%;
+    }
+
+    .page-header h1 {
+        font-size: 26px;
+    }
+
+    .parking-map {
+        width: 100%;
+    }
+
+    .dynamic-parking-slots {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr)) !important;
+
+        gap: 12px !important;
+    }
+
+    .dynamic-parking-slots .parking-slot {
+        height: 80px !important;
+        min-height: 80px !important;
+
+        font-size: 18px !important;
+    }
+
+    .summary-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 650px
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .admin-sidebar {
+        position: relative;
+
+        width: 100%;
+        min-width: 100%;
+
+        height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid #1e293b;
+    }
+
+    .parking-main {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+    }
+
+    .parking-main .container {
+        padding: 0;
+    }
+
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .legend {
+        gap: 15px;
+    }
+
+    .parking-map {
+        padding: 12px;
+    }
+
+    .dynamic-parking-slots {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 10px !important;
+    }
+
+    .dynamic-parking-slots .parking-slot {
+        height: 75px !important;
+        min-height: 75px !important;
+
+        font-size: 16px !important;
+    }
+
+    .slot-icon {
+        font-size: 16px;
+    }
+
+    .slot-vehicle {
+        font-size: 22px;
+    }
+
+    .slot-number {
+        font-size: 16px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-card {
+        padding: 16px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 450px
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .parking-main {
+        padding: 15px;
+    }
+
+    .parking-map {
+        padding: 10px;
+    }
+
+    .dynamic-parking-slots {
+        grid-template-columns: 1fr !important;
+    }
+
+    .dynamic-parking-slots .parking-slot {
+        height: 75px !important;
+        min-height: 75px !important;
+    }
+
+    .page-header h1 {
+        font-size: 21px;
+    }
+
+    .ai-card {
+        padding: 18px;
+    }
+
+    .recommend-box h1 {
+        font-size: 36px;
+    }
+
+    .parking-summary {
+        padding: 18px;
+    }
+}
+
+
+/* =========================================================
+   IMPORTANT FINAL OVERRIDES
+   These make sure no old CSS can shrink the parking slots.
+   ========================================================= */
+
+.parking-map {
+    width: 100% !important;
+
+    max-width: 1100px !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.dynamic-parking-slots {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr)) !important;
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    gap: 16px !important;
+
+    margin: 18px 0 !important;
+
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    flex: none !important;
+
+    align-self: stretch !important;
+}
+
+.dynamic-parking-slots .parking-slot {
+    width: 100% !important;
+
+    max-width: none !important;
+
+    min-width: 0 !important;
+
+    height: 100px !important;
+
+    min-height: 100px !important;
+
+    margin: 0 !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   END
+   ========================================================= */

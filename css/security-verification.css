@@ -1,0 +1,1692 @@
+/* =========================================================
+   SMARTPARK - SECURITY VERIFICATION
+   CLEANED & STRUCTURED CSS
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #0b1220;
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 35px 30px 80px;
+}
+
+
+/* =========================================================
+   BACK LINK
+   ========================================================= */
+
+.back-link,
+a[href*="admin"] {
+    display: inline-block;
+
+    margin-bottom: 25px;
+
+    color: #3b82f6;
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.back-link:hover,
+a[href*="admin"]:hover {
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
+
+.container > h1,
+.page-title {
+    margin: 0 0 10px;
+
+    text-align: center;
+
+    color: #ffffff;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.container > h1 + p,
+.page-subtitle {
+    margin: 0 auto 30px;
+
+    text-align: center;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    width: 100%;
+
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    min-height: 120px;
+
+    padding: 22px;
+
+    background: #111a2a;
+
+    border: 1px solid #263650;
+
+    border-radius: 12px;
+}
+
+.stat-card h3 {
+    margin: 0 0 15px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+.stat-card p {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   AI VERIFICATION CARD
+   ========================================================= */
+
+.verification-card {
+    width: 100%;
+
+    margin: 0 0 35px;
+
+    padding: 28px;
+
+    background: #111a2a;
+
+    border: 1px solid #263650;
+
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.section-header {
+    margin-bottom: 22px;
+}
+
+.section-header h2 {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+}
+
+.section-header h2 i {
+    color: #3b82f6;
+}
+
+.section-header p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-group {
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+select {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    background: #0c1526;
+
+    border: 1px solid #34445f;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   AI EXAMPLES / TEXTAREA
+   ========================================================= */
+
+textarea {
+    display: block;
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    min-width: 100% !important;
+
+    height: 150px !important;
+
+    min-height: 150px !important;
+
+    padding: 16px;
+
+    margin: 0 0 18px;
+
+    background: #0c1526;
+
+    border: 1px solid #34445f;
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    outline: none;
+
+    resize: vertical;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+textarea:focus {
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+textarea::placeholder {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   EXAMPLES CONTAINERS
+   ========================================================= */
+
+.examples,
+.example-box,
+.ai-examples,
+#examples {
+    width: 100%;
+
+    min-height: 140px;
+
+    padding: 18px 20px;
+
+    margin-bottom: 18px;
+
+    background: #0c1526;
+
+    border: 1px solid #34445f;
+
+    border-radius: 9px;
+
+    overflow: visible;
+}
+
+.examples p,
+.example-box p,
+.ai-examples p,
+#examples p {
+    margin: 8px 0;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.primary-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 44px;
+
+    padding: 11px 20px;
+
+    background: #2563eb;
+
+    border: none;
+
+    border-radius: 7px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+.primary-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   AI VERIFY BUTTON
+   ========================================================= */
+
+#verifyBtn,
+#verifyAIButton,
+#verifyUsingAI,
+#verifyButton {
+    min-width: 150px;
+
+    margin-top: 0;
+}
+
+textarea + button {
+    margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   VERIFICATION RESULT
+   ========================================================= */
+
+#vehicleResult,
+#verificationResult,
+.verification-result {
+    width: 100%;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   VEHICLE RESULT CARD
+   ========================================================= */
+
+.vehicle-result-card {
+    width: 100%;
+
+    padding: 22px;
+
+    background: #0d1628;
+
+    border: 1px solid #2d3c55;
+
+    border-radius: 10px;
+}
+
+.vehicle-result-card h3 {
+    margin: 0 0 18px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   VEHICLE DETAILS
+   ========================================================= */
+
+.vehicle-details-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+.vehicle-detail {
+    padding: 15px;
+
+    background: #182337;
+
+    border: 1px solid #2d3c55;
+
+    border-radius: 8px;
+}
+
+.vehicle-detail span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #8195b1;
+
+    font-size: 12px;
+}
+
+.vehicle-detail strong {
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   VERIFICATION STATUS
+   ========================================================= */
+
+#verificationStatus {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: #182337;
+
+    border: 1px solid #334155;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   OWNER DETAILS
+   ========================================================= */
+
+#ownerDetails {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: #111a2a;
+
+    border: 1px solid #263650;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   ENTRY DECISION
+   ========================================================= */
+
+#entryDecision {
+    width: 100%;
+
+    margin-top: 20px !important;
+
+    padding: 22px !important;
+
+    border-radius: 10px !important;
+
+    text-align: center;
+}
+
+#entryDecisionTitle {
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+}
+
+#entryDecisionMessage {
+    margin: 0;
+
+    color: #bbf7d0;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ENTRY ACTIONS
+   ========================================================= */
+
+#entryActions {
+    display: flex;
+
+    gap: 12px;
+
+    width: 100%;
+
+    margin-top: 20px !important;
+}
+
+#entryActions button {
+    flex: 1;
+}
+
+
+/* =========================================================
+   VEHICLE EXIT
+   IMPORTANT:
+   This section may be outside .container.
+   Therefore we explicitly match the inner width
+   of the .container: 1200px - 60px padding = 1140px.
+   ========================================================= */
+
+#exitVerification {
+    display: block;
+
+    width: calc(100% - 60px);
+
+    max-width: 1140px;
+
+    margin: 40px auto 80px;
+
+    padding: 28px;
+
+    background: #111a2a;
+
+    border: 1px solid #263650;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   EXIT HEADER
+   ========================================================= */
+
+#exitVerification .section-header {
+    margin-bottom: 22px;
+}
+
+#exitVerification .section-header h2 {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+}
+
+#exitVerification .section-header h2 i {
+    color: #3b82f6;
+}
+
+#exitVerification .section-header p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   EXIT FORM
+   ========================================================= */
+
+#exitVerification .form-group {
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+#exitVerification .form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   EXIT VEHICLE NUMBER
+   ========================================================= */
+
+#exitVehicleNumber {
+    display: block;
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    background: #0c1526;
+
+    border: 1px solid #34445f;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+#exitVehicleNumber::placeholder {
+    color: #64748b;
+}
+
+#exitVehicleNumber:focus {
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+
+/* =========================================================
+   VERIFY EXIT BUTTON
+   ========================================================= */
+
+#verifyExitBtn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 44px;
+
+    padding: 11px 20px;
+
+    background: #2563eb;
+
+    border: none;
+
+    border-radius: 7px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+#verifyExitBtn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   EXIT RESULT
+   ========================================================= */
+
+#exitResult {
+    width: 100%;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   EXIT VEHICLE CARD
+   ========================================================= */
+
+.exit-vehicle-card {
+    width: 100%;
+
+    padding: 22px;
+
+    background: #0d1628;
+
+    border: 1px solid #2d3c55;
+
+    border-radius: 10px;
+}
+
+.exit-vehicle-card h3 {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0 0 18px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   EXIT DETAILS GRID
+   ========================================================= */
+
+.exit-details-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.exit-details-grid .detail-box {
+    min-height: 72px;
+
+    padding: 15px;
+
+    background: #182337;
+
+    border: 1px solid #2d3c55;
+
+    border-radius: 8px;
+}
+
+.exit-details-grid .detail-box span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #8195b1;
+
+    font-size: 12px;
+}
+
+.exit-details-grid .detail-box strong {
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   EXIT DECISION
+   ========================================================= */
+
+.exit-decision {
+    width: 100%;
+
+    margin: 20px 0;
+
+    padding: 20px;
+
+    background: #123d24;
+
+    border: 1px solid #22c55e;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.exit-decision h2 {
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 19px;
+}
+
+.exit-decision p {
+    margin: 0;
+
+    color: #bbf7d0;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   ALLOW EXIT
+   ========================================================= */
+
+#allowExitBtn {
+    width: 100%;
+
+    min-height: 46px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   STATUS COLORS
+   ========================================================= */
+
+.status-success {
+    background: #123d24;
+
+    border-color: #22c55e;
+
+    color: #bbf7d0;
+}
+
+.status-error {
+    background: #3a1717;
+
+    border-color: #ef4444;
+
+    color: #fecaca;
+}
+
+.status-warning {
+    background: #3a3213;
+
+    border-color: #eab308;
+
+    color: #fef08a;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b1220;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #263650;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #34445f;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        padding: 25px 18px 60px;
+    }
+
+    .container > h1,
+    .page-title {
+        font-size: 26px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .verification-card {
+        padding: 22px;
+    }
+
+    .vehicle-details-grid,
+    .exit-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Vehicle Exit matches container width */
+    #exitVerification {
+        width: calc(100% - 36px);
+
+        max-width: none;
+
+        margin: 30px auto 60px;
+
+        padding: 22px;
+    }
+
+    #entryActions {
+        flex-direction: column;
+    }
+
+    #entryActions button {
+        width: 100%;
+    }
+
+    #verifyExitBtn {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 20px 12px 50px;
+    }
+
+    .container > h1,
+    .page-title {
+        font-size: 23px;
+    }
+
+    .verification-card {
+        padding: 18px;
+    }
+
+    #exitVerification {
+        width: calc(100% - 24px);
+
+        padding: 18px;
+
+        margin-top: 25px;
+    }
+
+    .stat-card {
+        min-height: 100px;
+
+        padding: 18px;
+    }
+
+    textarea {
+        height: 140px !important;
+
+        min-height: 140px !important;
+    }
+
+    #verifyBtn,
+    #verifyAIButton,
+    #verifyUsingAI,
+    #verifyButton,
+    #verifyExitBtn {
+        width: 100%;
+    }
+}
+/* =========================================================
+   AI VERIFICATION RESULT - FINAL DESIGN
+   Does NOT affect JavaScript
+   ========================================================= */
+
+
+/* =========================================================
+   MAIN RESULT CONTAINER
+   ========================================================= */
+
+#resultContainer {
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 0;
+
+    background: transparent;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   RESULT MAIN CARD
+   ========================================================= */
+
+#resultContainer .vehicle-result-card,
+#resultContainer .result-card,
+#resultContainer .verification-result-card {
+
+    width: 100%;
+
+    padding: 28px;
+
+    background: #111a2a;
+
+    border: 1px solid #263650;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================================
+   VEHICLE IMAGE
+   ========================================================= */
+
+#resultContainer img {
+    display: block;
+
+    width: 100%;
+    max-width: 850px;
+
+    height: auto;
+    max-height: 600px;
+
+    margin: 0 auto 30px;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 12px;
+
+    border: 1px solid #334155;
+
+    background: #0c1526;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   VEHICLE INFORMATION AREA
+   ========================================================= */
+
+#resultContainer .vehicle-details-grid,
+#resultContainer .details-grid,
+#resultContainer .vehicle-info-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    width: 100%;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   INFORMATION BOX
+   ========================================================= */
+
+#resultContainer .vehicle-detail,
+#resultContainer .detail-box,
+#resultContainer .vehicle-info {
+
+    min-height: 78px;
+
+    padding: 16px 18px;
+
+    background: #182337;
+
+    border: 1px solid #2d3c55;
+
+    border-radius: 10px;
+
+    transition: 0.2s ease;
+}
+
+
+#resultContainer .vehicle-detail:hover,
+#resultContainer .detail-box:hover,
+#resultContainer .vehicle-info:hover {
+
+    border-color: #3b82f6;
+
+    background: #1b2940;
+}
+
+
+/* =========================================================
+   INFORMATION LABEL
+   ========================================================= */
+
+#resultContainer .vehicle-detail span,
+#resultContainer .detail-box span,
+#resultContainer .vehicle-info span {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #8195b1;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   INFORMATION VALUE
+   ========================================================= */
+
+#resultContainer .vehicle-detail strong,
+#resultContainer .detail-box strong,
+#resultContainer .vehicle-info strong {
+
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   RESULT TITLE
+   ========================================================= */
+
+#resultContainer h2 {
+
+    margin: 0 0 20px;
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+
+#resultContainer h3 {
+
+    margin: 0 0 18px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+#resultContainer #verificationStatus,
+#verificationStatus {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 55px;
+
+    margin-top: 20px;
+
+    padding: 15px 18px;
+
+    background: #182337;
+
+    border: 1px solid #334155;
+
+    border-radius: 10px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SUCCESS STATUS
+   ========================================================= */
+
+#resultContainer .status-success,
+#verificationStatus.status-success {
+
+    background: #123d24;
+
+    border-color: #22c55e;
+
+    color: #bbf7d0;
+}
+
+
+/* =========================================================
+   ERROR STATUS
+   ========================================================= */
+
+#resultContainer .status-error,
+#verificationStatus.status-error {
+
+    background: #3a1717;
+
+    border-color: #ef4444;
+
+    color: #fecaca;
+}
+
+
+/* =========================================================
+   WARNING STATUS
+   ========================================================= */
+
+#resultContainer .status-warning,
+#verificationStatus.status-warning {
+
+    background: #3a3213;
+
+    border-color: #eab308;
+
+    color: #fef08a;
+}
+
+
+/* =========================================================
+   OWNER DETAILS
+   ========================================================= */
+
+#resultContainer #ownerDetails,
+#ownerDetails {
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 22px;
+
+    background: #111a2a;
+
+    border: 1px solid #263650;
+
+    border-radius: 12px;
+}
+
+
+/* =========================================================
+   OWNER DETAILS TITLE
+   ========================================================= */
+
+#ownerDetails h3 {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0 0 18px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   OWNER DETAIL GRID
+   ========================================================= */
+
+#ownerDetails .owner-details-grid,
+#ownerDetails .details-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   OWNER DETAIL BOX
+   ========================================================= */
+
+#ownerDetails .detail-box {
+
+    min-height: 70px;
+
+    padding: 15px;
+
+    background: #182337;
+
+    border: 1px solid #2d3c55;
+
+    border-radius: 9px;
+}
+
+
+#ownerDetails .detail-box span {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #8195b1;
+
+    font-size: 12px;
+}
+
+
+#ownerDetails .detail-box strong {
+
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   LOCKED OWNER MESSAGE
+   ========================================================= */
+
+#resultContainer .owner-locked,
+#ownerDetails .locked {
+
+    padding: 14px 16px;
+
+    margin-top: 15px;
+
+    background: #2b2410;
+
+    border: 1px solid #eab308;
+
+    border-radius: 9px;
+
+    color: #fde68a;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   OTP AREA
+   ========================================================= */
+
+#resultContainer #otpSection,
+#resultContainer .otp-section {
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 20px;
+
+    background: #0d1628;
+
+    border: 1px solid #2d3c55;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   OTP INPUT
+   ========================================================= */
+
+#resultContainer input[id*="otp"],
+#resultContainer input[id*="OTP"] {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    background: #0c1526;
+
+    border: 1px solid #34445f;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+#resultContainer input[id*="otp"]:focus,
+#resultContainer input[id*="OTP"]:focus {
+
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+
+/* =========================================================
+   RESULT BUTTONS
+   ========================================================= */
+
+#resultContainer button {
+
+    min-height: 44px;
+
+    padding: 10px 18px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   ENTRY DECISION
+   ========================================================= */
+
+#entryDecision {
+
+    width: 100%;
+
+    margin-top: 22px !important;
+
+    padding: 22px !important;
+
+    background: #123d24;
+
+    border: 1px solid #22c55e !important;
+
+    border-radius: 10px !important;
+
+    text-align: center;
+}
+
+
+#entryDecisionTitle {
+
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+}
+
+
+#entryDecisionMessage {
+
+    margin: 0;
+
+    color: #bbf7d0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   ENTRY ACTION BUTTONS
+   ========================================================= */
+
+#entryActions {
+
+    display: flex;
+
+    gap: 12px;
+
+    width: 100%;
+
+    margin-top: 20px !important;
+}
+
+
+#entryActions button {
+
+    flex: 1;
+
+    min-height: 46px;
+}
+
+
+/* =========================================================
+   RESULT SEPARATOR
+   ========================================================= */
+
+#resultContainer hr {
+
+    margin: 25px 0;
+
+    border: 0;
+
+    border-top: 1px solid #263650;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    #resultContainer .vehicle-details-grid,
+    #resultContainer .details-grid,
+    #resultContainer .vehicle-info-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    #ownerDetails .owner-details-grid,
+    #ownerDetails .details-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    #resultContainer img {
+
+        height: 280px;
+
+        max-width: 100%;
+    }
+
+
+    #resultContainer .vehicle-result-card,
+    #resultContainer .result-card,
+    #resultContainer .verification-result-card {
+
+        padding: 20px;
+    }
+
+
+    #entryActions {
+
+        flex-direction: column;
+    }
+
+
+    #entryActions button {
+
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    #resultContainer {
+
+        margin-top: 20px;
+    }
+
+
+    #resultContainer .vehicle-result-card,
+    #resultContainer .result-card,
+    #resultContainer .verification-result-card {
+
+        padding: 16px;
+
+        border-radius: 10px;
+    }
+
+
+    #resultContainer img {
+
+        height: 220px;
+
+        margin-bottom: 20px;
+
+        border-radius: 9px;
+    }
+
+
+    #resultContainer h2 {
+
+        font-size: 19px;
+    }
+
+
+    #resultContainer h3 {
+
+        font-size: 17px;
+    }
+
+
+    #resultContainer .vehicle-detail,
+    #resultContainer .detail-box,
+    #resultContainer .vehicle-info {
+
+        min-height: 65px;
+
+        padding: 13px;
+    }
+}

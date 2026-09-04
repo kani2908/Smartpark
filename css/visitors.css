@@ -1,0 +1,645 @@
+/* =========================================
+   SMARTPARK AI - VISITOR MANAGEMENT
+========================================= */
+
+body {
+    background: #0B1120;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 95%;
+    max-width: 1600px;
+    margin: auto;
+    padding: 40px;
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.page-header {
+    margin-bottom: 35px;
+}
+
+.page-header h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #94A3B8;
+    font-size: 17px;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 35px;
+}
+
+.stat-card {
+    background: #111827;
+    border: 1px solid #1F2937;
+    border-radius: 18px;
+    padding: 26px;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: #2563EB;
+}
+
+.stat-card h3 {
+    color: #94A3B8;
+    margin-bottom: 10px;
+}
+
+.stat-card span {
+    font-size: 38px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-section {
+    margin-bottom: 40px;
+}
+
+.search-section input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 20px;
+    border-radius: 14px;
+    border: 1px solid #334155;
+    background: #111827;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-section input::placeholder {
+    color: #64748B;
+}
+
+.search-section input:focus {
+    border-color: #2563EB;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================================
+   VISITOR RECORDS
+========================================= */
+
+.visitor-records-section {
+    margin-bottom: 45px;
+}
+
+.section-header {
+    margin-bottom: 22px;
+}
+
+.section-header h2,
+.security-actions-section h2,
+.audit-section > h2 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.section-header p,
+.security-actions-section > p,
+.audit-section > p {
+    color: #94A3B8;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   VISITOR GRID
+========================================= */
+
+.visitor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    gap: 25px;
+}
+
+
+/* =========================================
+   VISITOR CARD
+========================================= */
+
+.visitor-card {
+    background: #111827;
+    border: 1px solid #1F2937;
+    border-radius: 18px;
+    padding: 24px;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.visitor-card:hover {
+    border-color: #334155;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   VISITOR CARD HEADER
+========================================= */
+
+.visitor-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #1F2937;
+}
+
+.visitor-card-header h2 {
+    margin: 0 0 8px;
+    font-size: 24px;
+}
+
+.visitor-card-header p {
+    margin: 0;
+    color: #94A3B8;
+}
+
+
+/* =========================================
+   STATUS BADGES
+========================================= */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+
+/* Expected */
+
+.status.expected {
+    background: #FACC15;
+    color: #111827;
+}
+
+
+/* Checked In */
+
+.status.checked-in {
+    background: #22C55E;
+    color: white;
+}
+
+
+/* Checked Out */
+
+.status.checked-out {
+    background: #64748B;
+    color: white;
+}
+
+
+/* Fallback */
+
+.status.checked {
+    background: #22C55E;
+    color: white;
+}
+
+
+/* =========================================
+   VISITOR DETAILS
+========================================= */
+
+.visitor-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 20px;
+    padding: 20px 0;
+}
+
+.visitor-details p {
+    margin: 0;
+    padding: 10px 12px;
+    background: #172033;
+    border-radius: 8px;
+    color: #CBD5E1;
+    font-size: 14px;
+}
+
+.visitor-details strong {
+    color: white;
+}
+
+
+/* =========================================
+   SECURITY PANEL
+========================================= */
+
+.visitor-security-panel {
+    margin-top: 5px;
+    padding-top: 20px;
+    border-top: 1px solid #1F2937;
+}
+
+.security-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.security-title i {
+    margin-right: 7px;
+}
+
+
+/* =========================================
+   SECURITY GRID
+========================================= */
+
+.security-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.security-item {
+    background: #172033;
+    border-radius: 10px;
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.security-label {
+    color: #94A3B8;
+    font-size: 12px;
+}
+
+.security-value {
+    font-weight: 700;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   APPROVAL STATUS
+========================================= */
+
+.approval-approved {
+    color: #22C55E;
+}
+
+.approval-rejected {
+    color: #EF4444;
+}
+
+.approval-pending {
+    color: #FACC15;
+}
+
+
+/* =========================================
+   SLOT
+========================================= */
+
+.slot-value {
+    color: #60A5FA;
+}
+
+
+/* =========================================
+   EMERGENCY / OVERRIDE STATUS
+========================================= */
+
+.emergency-active {
+    color: #EF4444;
+}
+
+.override-active {
+    color: #F59E0B;
+}
+
+
+/* =========================================
+   SECURITY ACTION BUTTONS
+========================================= */
+
+.security-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.security-actions button {
+    border: none;
+    padding: 11px 15px;
+    border-radius: 9px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.security-actions button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.security-actions button i {
+    margin-right: 5px;
+}
+
+
+/* =========================================
+   CHECK IN
+========================================= */
+
+.checkin-btn {
+    background: #22C55E;
+}
+
+
+/* =========================================
+   CHECK OUT
+========================================= */
+
+.checkout-btn {
+    background: #EF4444;
+}
+
+
+/* =========================================
+   APPROVE
+========================================= */
+
+.approve-btn {
+    background: #16A34A;
+}
+
+
+/* =========================================
+   REJECT
+========================================= */
+
+.reject-btn {
+    background: #DC2626;
+}
+
+
+/* =========================================
+   EMERGENCY ENTRY
+========================================= */
+
+.emergency-btn {
+    background: #F97316;
+}
+
+
+/* =========================================
+   ADMIN OVERRIDE
+========================================= */
+
+.override-btn {
+    background: #7C3AED;
+}
+
+
+/* =========================================
+   VISITOR AUDIT
+========================================= */
+
+.visitor-security-panel .audit-section {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid #1F2937;
+}
+
+.audit-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.audit-title i {
+    margin-right: 6px;
+}
+
+.audit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.audit-entry {
+    background: #172033;
+    border-left: 3px solid #2563EB;
+    padding: 10px 12px;
+    border-radius: 7px;
+    color: #CBD5E1;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.audit-action {
+    display: block;
+    color: white;
+    font-weight: 700;
+}
+
+.audit-time {
+    display: block;
+    color: #64748B;
+    margin-bottom: 3px;
+}
+
+
+/* =========================================
+   GLOBAL SECURITY ACTIONS
+========================================= */
+
+.security-actions-section {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.security-action-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.security-action-item {
+    background: #111827;
+    border: 1px solid #1F2937;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #CBD5E1;
+}
+
+.security-action-item i {
+    font-size: 18px;
+}
+
+
+/* =========================================
+   GLOBAL AUDIT LOG
+========================================= */
+
+.audit-section {
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+
+.audit-section > h2 {
+    margin-bottom: 8px;
+}
+
+#auditLogContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#auditLogContainer .audit-entry {
+    background: #111827;
+    border: 1px solid #1F2937;
+    border-left: 4px solid #2563EB;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+
+/* =========================================
+   EMPTY STATES
+========================================= */
+
+.empty-audit {
+    color: #64748B;
+    padding: 15px 0;
+}
+
+.visitor-card > p {
+    color: #94A3B8;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .container {
+        width: 92%;
+        padding: 25px 0;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .visitor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .security-action-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .page-header h1 {
+        font-size: 30px;
+    }
+
+    .visitor-details {
+        grid-template-columns: 1fr;
+    }
+
+    .security-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .security-action-info {
+        grid-template-columns: 1fr;
+    }
+
+    .visitor-card-header {
+        flex-direction: column;
+    }
+
+    .security-actions {
+        flex-direction: column;
+    }
+
+    .security-actions button {
+        width: 100%;
+    }
+}
+/* =========================================
+   BACK TO ADMIN DASHBOARD
+========================================= */
+
+.back-admin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    padding: 10px 16px;
+
+    background: #1E293B;
+    color: #CBD5E1;
+
+    border: 1px solid #334155;
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.back-admin-btn:hover {
+    background: #2563EB;
+    color: white;
+    border-color: #2563EB;
+    transform: translateX(-2px);
+}

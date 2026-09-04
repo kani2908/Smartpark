@@ -1,0 +1,1205 @@
+/* =========================================================
+   SMARTPARK AI
+   SIMPLE VEHICLE VERIFICATION
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.vehicle-page {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 40px 30px;
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.page-header {
+
+    margin-bottom: 30px;
+
+}
+
+
+.title-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.title-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #2563eb;
+
+    border-radius: 14px;
+
+    font-size: 24px;
+
+    box-shadow:
+        0 10px 25px rgba(
+            37,
+            99,
+            235,
+            0.25
+        );
+
+}
+
+
+.page-header h1 {
+
+    font-size: 32px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.page-header p {
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   WORKSPACE
+========================================================= */
+
+.verification-workspace {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.7fr)
+        minmax(320px, 1fr);
+
+    gap: 25px;
+
+    align-items: start;
+
+}
+
+
+/* =========================================================
+   LEFT PANEL
+========================================================= */
+
+.verification-panel {
+
+    background: #111827;
+
+    border: 1px solid #1e293b;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+}
+
+
+/* =========================================================
+   PANEL HEADER
+========================================================= */
+
+.panel-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.panel-header h2 {
+
+    font-size: 22px;
+
+    margin-bottom: 6px;
+
+}
+
+
+.panel-header p {
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.status-badge {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 12px;
+
+    background:
+        rgba(
+            34,
+            197,
+            94,
+            0.1
+        );
+
+    color: #22c55e;
+
+    border:
+        1px solid
+        rgba(
+            34,
+            197,
+            94,
+            0.25
+        );
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+}
+
+
+.status-badge i {
+
+    font-size: 7px;
+
+}
+
+
+/* =========================================================
+   SEARCH AREA
+========================================================= */
+
+.vehicle-search-area {
+
+    background: #0f172a;
+
+    border: 1px solid #1e293b;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+}
+
+
+.search-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    background:
+        rgba(
+            37,
+            99,
+            235,
+            0.12
+        );
+
+    color: #3b82f6;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+
+}
+
+
+.vehicle-search-area h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.vehicle-search-area > p {
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.vehicle-number-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.vehicle-number-group label {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+.vehicle-number-group input {
+
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 15px;
+
+    background: #111827;
+
+    border: 1px solid #334155;
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    outline: none;
+
+    font-size: 15px;
+
+    text-transform: uppercase;
+
+    transition: 0.2s ease;
+
+}
+
+
+.vehicle-number-group input::placeholder {
+
+    color: #64748b;
+
+}
+
+
+.vehicle-number-group input:focus {
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            37,
+            99,
+            235,
+            0.12
+        );
+
+}
+
+
+/* =========================================================
+   CHECK BUTTON
+========================================================= */
+
+.check-btn {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    margin-top: 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    transition: 0.2s ease;
+
+}
+
+
+.check-btn:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+
+}
+
+
+.check-btn:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+}
+
+
+/* =========================================================
+   SEARCH STATUS
+========================================================= */
+
+.vehicle-search-status {
+
+    margin-top: 15px;
+
+    padding: 12px 15px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    display: none;
+
+}
+
+
+.vehicle-search-status.show {
+
+    display: block;
+
+}
+
+
+.vehicle-search-status.info {
+
+    background:
+        rgba(
+            59,
+            130,
+            246,
+            0.1
+        );
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.3
+        );
+
+    color: #93c5fd;
+
+}
+
+
+.vehicle-search-status.error {
+
+    background:
+        rgba(
+            239,
+            68,
+            68,
+            0.1
+        );
+
+    border:
+        1px solid
+        rgba(
+            239,
+            68,
+            68,
+            0.3
+        );
+
+    color: #fca5a5;
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.vehicle-verification-result {
+
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+}
+
+
+.vehicle-verification-result.show {
+
+    display: block;
+
+}
+
+
+/* REGISTERED */
+
+.vehicle-verification-result.success {
+
+    background:
+        rgba(
+            34,
+            197,
+            94,
+            0.08
+        );
+
+    border:
+        1px solid
+        rgba(
+            34,
+            197,
+            94,
+            0.35
+        );
+
+}
+
+
+/* NOT REGISTERED */
+
+.vehicle-verification-result.error {
+
+    background:
+        rgba(
+            239,
+            68,
+            68,
+            0.08
+        );
+
+    border:
+        1px solid
+        rgba(
+            239,
+            68,
+            68,
+            0.35
+        );
+
+}
+
+
+/* RESULT HEADER */
+
+.result-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.result-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+
+}
+
+
+.success .result-icon {
+
+    background:
+        rgba(
+            34,
+            197,
+            94,
+            0.15
+        );
+
+    color: #22c55e;
+
+}
+
+
+.error .result-icon {
+
+    background:
+        rgba(
+            239,
+            68,
+            68,
+            0.15
+        );
+
+    color: #ef4444;
+
+}
+
+
+.result-header h3 {
+
+    font-size: 17px;
+
+}
+
+
+.result-header p {
+
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   RESULT DETAILS
+========================================================= */
+
+.vehicle-details {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 12px;
+
+}
+
+
+.detail-item {
+
+    padding: 13px;
+
+    background:
+        rgba(
+            15,
+            23,
+            42,
+            0.65
+        );
+
+    border-radius: 8px;
+
+}
+
+
+.detail-label {
+
+    display: block;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    margin-bottom: 4px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+
+}
+
+
+.detail-value {
+
+    color: #e2e8f0;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    word-break: break-word;
+
+}
+
+
+/* =========================================================
+   RIGHT INFORMATION
+========================================================= */
+
+.information-panel {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+
+/* =========================================================
+   ADMIN CARD
+========================================================= */
+
+.ai-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #172554,
+            #111827
+        );
+
+    border:
+        1px solid
+        #1e3a8a;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+}
+
+
+.ai-card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.ai-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #2563eb;
+
+    border-radius: 12px;
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+}
+
+
+.ai-card h3 {
+
+    font-size: 17px;
+
+}
+
+
+.ai-card-header span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: #93c5fd;
+
+    font-size: 12px;
+
+}
+
+
+.ai-content {
+
+    margin-top: 18px;
+
+}
+
+
+.ai-content p {
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 12px;
+
+}
+
+
+.ai-content p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+   PROCESS CARD
+========================================================= */
+
+.process-card {
+
+    background: #111827;
+
+    border: 1px solid #1e293b;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+}
+
+
+.process-card h3 {
+
+    font-size: 17px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.process-step {
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: flex-start;
+
+}
+
+
+.step-number {
+
+    min-width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            37,
+            99,
+            235,
+            0.15
+        );
+
+    color: #60a5fa;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.process-step strong {
+
+    font-size: 14px;
+
+}
+
+
+.process-step p {
+
+    margin-top: 4px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+.process-line {
+
+    height: 20px;
+
+    width: 1px;
+
+    background: #334155;
+
+    margin-left: 15px;
+
+}
+
+
+/* =========================================================
+   TIPS
+========================================================= */
+
+.tips-card {
+
+    background: #111827;
+
+    border: 1px solid #1e293b;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+}
+
+
+.tips-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.tips-header i {
+
+    color: #facc15;
+
+}
+
+
+.tips-header h3 {
+
+    font-size: 16px;
+
+}
+
+
+.tips-card ul {
+
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+
+}
+
+
+.tips-card li {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+.tips-card li i {
+
+    color: #22c55e;
+
+    margin-top: 3px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .verification-workspace {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .vehicle-page {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .page-header h1 {
+
+        font-size: 26px;
+
+    }
+
+
+    .panel-header {
+
+        flex-direction: column;
+
+    }
+
+
+    .status-badge {
+
+        align-self: flex-start;
+
+    }
+
+
+    .vehicle-search-area {
+
+        padding: 22px;
+
+    }
+
+
+    .vehicle-details {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+.vehicle-action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.vehicle-action-buttons button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.register-vehicle-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.review-vehicle-btn {
+    background: #1d4ed8;
+    color: white;
+}
+
+.dismiss-vehicle-btn {
+    background: #374151;
+    color: white;
+}
+
+.vehicle-not-registered {
+    padding: 20px;
+}
+
+.not-registered-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.not-registered-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #451a1a;
+    color: #ef4444;
+    flex-shrink: 0;
+}
+
+.not-registered-header h3 {
+    margin: 0;
+}
+
+.not-registered-header p {
+    margin: 5px 0 0;
+}
+
+.vehicle-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.detail-item {
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.7);
+}
+
+.detail-label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    font-weight: 600;
+}
+.review-vehicle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.review-vehicle-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.vehicle-action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verification History | SmartPark AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/verification-history.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="page-header">
+
+        <div>
+
+            <h1>
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                Verification History
+            </h1>
+
+            <p>
+                View all AI verified vehicles.
+            </p>
+
+        </div>
+
+    </header>
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <h4>Today's Verified</h4>
+
+            <h2 id="verifiedCount">0</h2>
+
+        </div>
+
+    </section>
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Vehicle Number...">
+
+    </div>
+
+    <div class="history-table">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Vehicle</th>
+                    <th>Owner</th>
+                    <th>Door</th>
+                    <th>Phone</th>
+                    <th>Verified Time</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="historyTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script type="module" src="js/verification-history.js"></script>
+
+</body>
+
+</html>

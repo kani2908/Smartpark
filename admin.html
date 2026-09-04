@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Smart Parking</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+
+        <div class="logo">
+            <span style="font-size:22px;">🅿</span>
+            <h1 style="font-size:18px;">SmartPark AI</h1>
+        </div>
+
+       <nav>
+
+    <a href="admin.html" class="active">
+        <i class="fa-solid fa-house"></i>
+            Dashboard
+    </a>
+
+    <a href="vehicle-verification.html">
+        <i class="fa-solid fa-car"></i>
+     Vehicle Registration
+    </a>
+
+    <a href="security-verification.html">
+        <i class="fa-solid fa-shield"></i>
+            Security Verfication
+    </a>
+
+    <a href="users.html">
+    <i class="fa-solid fa-users"></i>
+    Users
+    </a>
+    
+    <a href="parking-slots.html">
+    <i class="fa-solid fa-square-parking"></i>
+    Parking Slots
+    </a>
+
+    <a href="visitors.html">
+        <i class="fa-solid fa-user-check"></i>
+     Visitors
+    </a>
+
+   <a href="entry-log.html">
+    <i class="fa-solid fa-file-lines"></i>
+    Entry Log
+    </a>
+    <a href="admin-support.html">
+        <i class="fa-solid fa-headset"></i>
+            Support Requests
+
+    <a href="ai-assistant.html">
+        <i class="fa-solid fa-robot"></i>
+            AI Assistant
+    </a>
+
+</nav>
+
+        <!-- Sidebar Footer: Admin card + Logout -->
+        <div class="sidebar-footer">
+
+            <div class="sidebar-admin-card">
+
+                <div class="sidebar-avatar">A</div>
+
+                <div>
+                    <h5>Administrator</h5>
+                    <small>System Admin</small>
+                </div>
+
+            </div>
+
+            <button id="logoutBtn" class="sidebar-logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+
+    <div class="container">
+
+        <header class="admin-topbar">
+
+    <div class="topbar-left">
+
+       <!-- ADMIN SUPPORT NOTIFICATIONS -->
+<div class="admin-notification-wrapper">
+
+    <button
+        id="notificationBtn"
+        class="notification-btn"
+        type="button"
+        aria-label="Support notifications"
+    >
+
+        <i class="fa-regular fa-bell"></i>
+
+        <span
+            id="notificationCount"
+            class="notification-count"
+            style="display:none;"
+        >
+            0
+        </span>
+
+    </button>
+
+
+    <!-- Notification Dropdown -->
+
+    <div
+        id="notificationPanel"
+        class="notification-panel"
+    >
+
+        <div class="notification-panel-header">
+
+            <div>
+                <h3>Notifications</h3>
+
+                <p>
+                    User support requests
+                </p>
+            </div>
+
+            <button
+                id="closeNotificationBtn"
+                type="button"
+                class="notification-close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="notificationList"
+            class="notification-list"
+        >
+
+            <div class="notification-empty">
+
+                <i class="fa-regular fa-bell-slash"></i>
+
+                <p>
+                    No new notifications
+                </p>
+
+                <span>
+                    New user support requests will appear here.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    </div>
+
+    <div class="topbar-right">
+
+        <div class="admin-profile">
+
+            <div class="profile-avatar">
+
+                A
+
+            </div>
+
+            <div>
+
+                <h4 id="adminName">
+
+                    Welcome, Administrator
+
+                </h4>
+
+                <p>
+
+                    System Administrator
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+<section class="hero-banner">
+
+    <div class="hero-content">
+
+        <h1>
+
+            Welcome Back, Administrator 👋
+
+        </h1>
+
+        <p>
+
+            Manage users, parking slots, bookings and vehicle verification from one centralized platform.
+
+        </p>
+
+        <span class="system-status">
+
+            <i class="fa-solid fa-circle"></i>
+
+            System Status: All Systems Operational
+
+        </span>
+
+    </div>
+
+   <div class="dashboard-date-time">
+    <div class="date-icon">
+        <i class="fa-solid fa-calendar-days"></i>
+    </div>
+
+    <div class="date-time-content">
+        <div id="liveDayDate" class="live-day-date">
+            Sunday, August 16, 2026
+        </div>
+
+        <div id="liveTime" class="live-time">
+            02:58 PM
+        </div>
+    </div>
+</div>
+
+</section>
+
+        <!-- Dashboard Statistics -->
+        <section class="stats-grid">
+
+    <div class="stat-card">
+
+        <div class="stat-icon icon-purple">👥</div>
+
+        <div>
+
+            <h3>Total Users</h3>
+
+            <span id="totalUsers">0</span>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icon icon-blue">🅿</div>
+
+        <div>
+
+            <h3>Total Slots</h3>
+
+            <span id="totalSlots">0</span>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icon icon-teal">🟢</div>
+
+        <div>
+
+            <h3>Available</h3>
+
+            <span id="availableSlots">0</span>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icon icon-red">🔴</div>
+
+        <div>
+
+            <h3>Occupied</h3>
+
+            <span id="occupiedSlots">0</span>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icon icon-orange">📋</div>
+
+        <div>
+
+            <h3>Bookings</h3>
+
+            <span id="totalBookings">0</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <hr>
+
+        <!-- Registered Users -->
+        <!-- Users & Bookings Row -->
+<!-- Users & Bookings Row -->
+<div class="users-management-grid">
+
+    <!-- REGISTERED USERS -->
+    <section class="user-section">
+
+        <div class="section-header">
+            <div>
+                <h2>👥 Registered Users</h2>
+                <p>Manage registered system users.</p>
+            </div>
+
+            <a href="users.html" class="view-all">
+                View All Users →
+            </a>
+        </div>
+
+        <div id="registeredUsers" class="users-grid">
+            <!-- Users will be loaded here -->
+        </div>
+
+    </section>
+
+
+    <!-- ADMINISTRATORS -->
+    <section class="user-section admin-section">
+
+        <div class="section-header">
+            <div>
+                <h2>🛡️ Administrators</h2>
+                <p>System administrators and management accounts.</p>
+            </div>
+        </div>
+
+        <div id="adminUsers" class="users-grid">
+            <!-- Admins will be loaded here -->
+        </div>
+
+    </section>
+
+</div>
+
+    <!-- Recent Bookings -->
+    <section class="dashboard-panel">
+
+        <div class="panel-header">
+
+            <h2>Bookings</h2>
+
+            <div>
+
+                <a href="#" class="view-all-link">
+                    View All Bookings →
+                </a>
+
+                <button id="historyBtn" class="history-btn">
+                    📜 History
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="bookingsContainer" class="admin-grid"></div>
+
+    </section>
+
+</div>
+
+<hr>
+
+<!-- Parking Slots -->
+<div class="slot-header">
+
+    <h2>Parking Slots</h2>
+
+    <button id="addSlotBtn" class="primary-btn">
+        ➕ Add Slot
+    </button>
+
+</div>
+
+<div id="slotsContainer" class="admin-grid"></div>
+
+       
+
+
+    </div>
+
+    </div><!-- /.admin-main -->
+
+    <!-- Add/Edit Slot Modal -->
+    <div id="slotModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2 id="slotModalTitle">Add Parking Slot</h2>
+
+            <input
+                type="text"
+                id="slotNumber"
+                placeholder="Enter Slot Number">
+
+            <div class="modal-buttons">
+
+                <button id="saveSlotBtn" class="primary-btn">Save</button>
+
+                <button id="cancelSlotBtn" class="danger-btn">Cancel</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+<!-- =========================================================
+     ADMIN SUPPORT CONVERSATION MODAL
+     ========================================================= -->
+
+<div
+    id="supportConversationModal"
+    class="support-conversation-modal"
+>
+
+    <div class="support-conversation-container">
+
+        <!-- HEADER -->
+
+        <div class="support-conversation-header">
+
+            <div class="support-user-info">
+
+                <div class="support-user-avatar">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 id="supportConversationUser">
+                        Support Request
+                    </h3>
+
+                    <p id="supportConversationDetails">
+                        SmartPark User
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="closeSupportConversationBtn"
+                type="button"
+                class="support-close-btn"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <!-- REQUEST INFORMATION -->
+
+        <div
+            id="supportRequestInfo"
+            class="support-request-info"
+        >
+
+            <div class="support-info-item">
+
+                <span>Category</span>
+
+                <strong id="supportRequestCategory">
+                    General Support
+                </strong>
+
+            </div>
+
+
+            <div class="support-info-item">
+
+                <span>Subject</span>
+
+                <strong id="supportRequestSubject">
+                    Support Request
+                </strong>
+
+            </div>
+
+
+            <div class="support-info-item">
+
+                <span>Status</span>
+
+                <strong
+                    id="supportRequestStatus"
+                    class="support-status pending"
+                >
+                    Pending
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- ORIGINAL REQUEST -->
+
+        <div class="support-original-request">
+
+            <div class="support-message-label">
+
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+                User's Request
+
+            </div>
+
+
+            <div
+                id="supportOriginalMessage"
+                class="support-original-message"
+            >
+                Loading request...
+            </div>
+
+
+            <div
+                id="supportOriginalTime"
+                class="support-message-time"
+            ></div>
+
+        </div>
+
+
+        <!-- CONVERSATION -->
+
+        <div
+            id="supportConversationMessages"
+            class="support-conversation-messages"
+        >
+
+            <div class="support-loading">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                Loading conversation...
+
+            </div>
+
+        </div>
+
+
+        <!-- REPLY AREA -->
+
+        <div class="support-reply-area">
+
+            <textarea
+                id="supportReplyInput"
+                class="support-reply-input"
+                placeholder="Type your reply to the user..."
+                rows="3"
+            ></textarea>
+
+
+            <div class="support-reply-footer">
+
+                <span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Admin communication
+                </span>
+
+
+                <button
+                    id="sendSupportReplyBtn"
+                    type="button"
+                    class="support-send-btn"
+                >
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                    Send Reply
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="support-conversation-footer">
+
+            <button
+                id="markSupportResolvedBtn"
+                type="button"
+                class="support-resolve-btn"
+            >
+
+                <i class="fa-solid fa-check"></i>
+
+                Mark as Resolved
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

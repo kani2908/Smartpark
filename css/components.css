@@ -1,0 +1,229 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* ==========================================================
+   COMPONENTS.CSS
+   Reusable UI components only — used across 2+ pages.
+   Page-specific layout does NOT belong here.
+   ========================================================== */
+
+/* ---------- Buttons ---------- */
+
+.primary-btn{
+    background:var(--accent-blue);
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:var(--radius-sm);
+    font-size:var(--font-size-md);
+    cursor:pointer;
+    transition:var(--transition-fast);
+}
+
+.primary-btn:hover{
+    background:var(--accent-blue-hover);
+}
+
+.danger-btn{
+    background:var(--color-danger);
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:var(--radius-sm);
+    font-size:var(--font-size-md);
+    cursor:pointer;
+    transition:var(--transition-fast);
+}
+
+.danger-btn:hover{
+    background:#b91c1c;
+}
+
+.edit-btn{
+    background:var(--accent-blue);
+    color:#fff;
+    border:none;
+    padding:8px 12px;
+    border-radius:var(--radius-sm);
+    cursor:pointer;
+    transition:var(--transition-fast);
+}
+
+.edit-btn:hover{
+    background:var(--accent-blue-hover);
+}
+
+.delete-btn{
+    background:var(--color-danger);
+    color:#fff;
+    border:none;
+    padding:8px 12px;
+    border-radius:var(--radius-sm);
+    cursor:pointer;
+    transition:var(--transition-fast);
+}
+
+.delete-btn:hover{
+    background:#b91c1c;
+}
+
+/* ---------- Status Badges ---------- */
+/* (kept the second/more polished version — 12px + letter-spacing) */
+
+.status-badge{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:var(--radius-pill);
+    font-size:12px;
+    font-weight:bold;
+    color:#fff;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.status-available,
+.status-active{
+    background:var(--color-success);
+}
+
+.status-occupied{
+    background:var(--color-danger);
+}
+
+.status-cancelled{
+    background:var(--color-warning);
+}
+
+.status-completed{
+    background:var(--color-neutral);
+}
+
+/* ---------- Role Badges ---------- */
+/* New — your concept image shows role/verification badges
+   (e.g. "Verified Successfully", "Vehicle not registered")
+   that your old CSS didn't have a component for yet */
+
+.role-badge{
+    display:inline-block;
+    padding:4px 12px;
+    border-radius:var(--radius-pill);
+    font-size:12px;
+    font-weight:600;
+    background:rgba(37,99,235,.15);
+    color:var(--accent-blue-light);
+    border:1px solid rgba(37,99,235,.3);
+}
+
+/* ---------- Input Groups ---------- */
+/* Generic styled input used in modals + forms */
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    background:var(--bg-input);
+    border:1px solid var(--border-color);
+    border-radius:var(--radius-sm);
+    font-size:var(--font-size-md);
+    color:var(--text-primary);
+    transition:var(--transition-fast);
+}
+
+input:focus{
+    outline:none;
+    border-color:var(--accent-blue);
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+.input-error{
+    border:2px solid var(--color-danger) !important;
+    box-shadow:0 0 8px rgba(220,38,38,.2);
+}
+
+/* ---------- Error Messages ---------- */
+
+.error-message{
+    display:none;
+    color:#fca5a5;
+    background:rgba(220,38,38,.1);
+    border:1px solid rgba(220,38,38,.3);
+    border-radius:var(--radius-sm);
+    padding:10px;
+    margin:10px 0;
+    font-size:14px;
+    font-weight:500;
+    text-align:center;
+}
+
+/* ---------- Glass / Card Base ---------- */
+/* Shared base look for cards on dashboard + admin —
+   dashboard.css / admin.css extend this rather than
+   redefining background+border+radius each time */
+
+.card-base{
+    background:var(--bg-card);
+    border:1px solid var(--border-color);
+    border-radius:var(--radius-lg);
+    padding:18px;
+    box-shadow:var(--shadow-md);
+    transition:var(--transition-base);
+}
+
+.card-base:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-lg);
+}
+
+/* ---------- Modal ---------- */
+/* (kept the z-index:1000 + box-shadow version) */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.modal-content{
+    background:var(--bg-modal);
+    color:var(--text-primary);
+    width:400px;
+    max-width:90%;
+    padding:25px;
+    border-radius:12px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    box-shadow:var(--shadow-modal);
+    border:1px solid var(--border-color);
+}
+
+.modal-content h2{
+    margin:0 0 10px;
+}
+
+.modal-content input{
+    width:100%;
+}
+
+.modal-content button{
+    width:100%;
+}
+
+.modal-buttons{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.modal-buttons button{
+    width:auto;
+    flex:1;
+}

@@ -1,0 +1,283 @@
+<html>
+<head>
+
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Assistant | SmartPark AI</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- AI Assistant CSS -->
+    <link
+        rel="stylesheet"
+        href="css/ai-assistant.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="page-header">
+
+        <a href="admin.html">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Admin Dashboard
+        </a>
+
+        <h1>
+            <i class="fa-solid fa-robot"></i>
+            SmartPark AI Assistant
+        </h1>
+
+        <p>
+            Intelligent assistance for parking management
+        </p>
+
+    </header>
+
+
+    <!-- =========================================
+         AI ASSISTANT
+    ========================================== -->
+
+    <section class="assistant-card">
+
+
+        <!-- AI HEADER -->
+
+        <div class="assistant-header">
+
+            <div class="ai-icon">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <div>
+
+                <h2>
+                    SmartPark AI
+                </h2>
+
+                <p>
+                    Your intelligent parking assistant
+                </p>
+
+            </div>
+
+            <div class="ai-status">
+
+                <span></span>
+
+                Online
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             CHAT AREA
+        ====================================== -->
+
+        <div
+            id="chatMessages"
+            class="chat-messages"
+        >
+
+            <!-- Welcome Message -->
+
+            <div class="message ai-message">
+
+                <div class="message-icon">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                </div>
+
+                <div class="message-content">
+
+                    <strong>
+                        SmartPark AI
+                    </strong>
+
+                    <p>
+                        Hello! 👋 I'm your SmartPark
+                        AI Assistant.
+                    </p>
+
+                    <p>
+                        I can help you check parking
+                        slots, bookings, vehicles,
+                        and parking activity.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             QUICK ACTIONS
+        ====================================== -->
+
+        <div class="quick-section">
+
+            <h3>
+                Quick Actions
+            </h3>
+
+
+            <div class="quick-actions">
+
+                <button
+                    class="quick-btn"
+                    data-question="Show available parking slots"
+                >
+
+                    <i class="fa-solid fa-square-parking"></i>
+
+                    Available Slots
+
+                </button>
+
+
+                <button
+                    class="quick-btn"
+                    data-question="Show occupied parking slots"
+                >
+
+                    <i class="fa-solid fa-car"></i>
+
+                    Occupied Slots
+
+                </button>
+
+
+                <button
+                    class="quick-btn"
+                    data-question="Show my current bookings"
+                >
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    Bookings
+
+                </button>
+
+
+                <button
+                    class="quick-btn"
+                    data-question="Show registered vehicles"
+                >
+
+                    <i class="fa-solid fa-car-side"></i>
+
+                    Vehicles
+
+                </button>
+
+
+                <button
+                    class="quick-btn"
+                    data-question="Show vehicles currently inside"
+                >
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Vehicles Inside
+
+                </button>
+
+
+                <button
+                    class="quick-btn"
+                    data-question="Show parking summary"
+                >
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    Parking Summary
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             INPUT
+        ====================================== -->
+
+        <div class="chat-input-area">
+
+            <input
+                type="text"
+                id="aiInput"
+                placeholder="Ask SmartPark AI..."
+                autocomplete="off"
+            >
+
+            <button
+                id="sendAiBtn"
+                type="button"
+            >
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- =====================================
+             SUGGESTIONS
+        ====================================== -->
+
+        <div class="assistant-hint">
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            Try asking:
+            "Which parking slots are available?"
+
+        </div>
+
+
+    </section>
+
+</div>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================== -->
+
+<script
+    type="module"
+    src="js/ai-assistant.js"
+></script>
+
+</body>
+
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        SmartPark - Vehicle Verification
+    </title>
+
+
+    <!-- Main SmartPark CSS -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <!-- Vehicle Verification CSS -->
+    <link
+        rel="stylesheet"
+        href="css/vehicle-verification.css"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="vehicle-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="page-header">
+        <a href="admin.html"
+           class="back-admin-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Admin Dashboard
+
+        </a>
+
+        <div class="title-row">
+
+            <div class="title-icon">
+
+                <i class="fa-solid fa-car"></i>
+
+            </div>
+
+
+            <div>
+
+                <h1>
+                    Vehicle Verification
+                </h1>
+
+                <p>
+                    Verify whether a vehicle is registered
+                    in the apartment premises.
+                </p>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN WORKSPACE
+    ====================================================== -->
+
+    <section class="verification-workspace">
+
+
+        <!-- =================================================
+             LEFT PANEL
+        ================================================== -->
+
+        <div class="verification-panel">
+
+
+            <!-- PANEL HEADER -->
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Verify Vehicle
+                    </h2>
+
+                    <p>
+                        Enter the vehicle registration number
+                        to check the apartment vehicle records.
+                    </p>
+
+                </div>
+
+
+                <div class="status-badge">
+
+                    <i class="fa-solid fa-circle"></i>
+
+                    Admin Verification
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 VEHICLE SEARCH
+            ================================================== -->
+
+            <div class="vehicle-search-area">
+
+
+                <div class="search-icon">
+
+                    <i class="fa-solid fa-car"></i>
+
+                </div>
+
+
+                <h3>
+                    Check Vehicle Registration
+                </h3>
+
+
+                <p>
+                    Enter the registration number of the vehicle
+                    to check whether it belongs to a registered
+                    apartment resident.
+                </p>
+
+
+
+                <!-- VEHICLE NUMBER -->
+
+                <div class="vehicle-number-group">
+
+                    <label for="vehicleNumber">
+
+                        Vehicle Registration Number
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="vehicleNumber"
+                        placeholder="Example: KA03NT8821"
+                        maxlength="12"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+
+                <!-- CHECK BUTTON -->
+
+                <button
+                    type="button"
+                    id="checkVehicleBtn"
+                    class="check-btn"
+                >
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Check Vehicle
+
+                </button>
+
+
+
+                <!-- STATUS -->
+
+                <div
+                    id="vehicleSearchStatus"
+                    class="vehicle-search-status"
+                ></div>
+
+
+
+                <!-- RESULT -->
+
+                <div
+                    id="vehicleVerificationResult"
+                    class="vehicle-verification-result"
+                ></div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RIGHT INFORMATION PANEL
+        ================================================== -->
+
+        <aside class="information-panel">
+
+
+            <!-- PURPOSE CARD -->
+
+            <div class="ai-card">
+
+                <div class="ai-card-header">
+
+                    <div class="ai-icon">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Admin Vehicle Check
+                        </h3>
+
+                        <span>
+                            Apartment registration
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ai-content">
+
+                    <p>
+                        This check helps the administrator
+                        verify whether a vehicle belongs to
+                        a registered apartment resident.
+                    </p>
+
+
+                    <p>
+                        The system searches the registered
+                        vehicle database using the vehicle
+                        registration number.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROCESS
+            ================================================== -->
+
+            <div class="process-card">
+
+                <h3>
+                    Verification Process
+                </h3>
+
+
+                <div class="process-step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Enter Vehicle Number
+                        </strong>
+
+                        <p>
+                            Admin enters the vehicle
+                            registration number.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="process-line"></div>
+
+
+                <div class="process-step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Search Vehicle Records
+                        </strong>
+
+                        <p>
+                            Firebase searches the registered
+                            vehicle database.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="process-line"></div>
+
+
+                <div class="process-step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Identify Resident
+                        </strong>
+
+                        <p>
+                            The registered vehicle owner
+                            information is retrieved.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="process-line"></div>
+
+
+                <div class="process-step">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Display Vehicle Details
+                        </strong>
+
+                        <p>
+                            Vehicle and resident information
+                            is shown to the administrator.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="process-line"></div>
+
+
+                <div class="process-step">
+
+                    <div class="step-number">
+                        5
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Admin Decision
+                        </strong>
+
+                        <p>
+                            Admin can identify the vehicle
+                            as registered or unregistered.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 WHAT THIS CHECK DOES
+            ================================================== -->
+
+            <div class="tips-card">
+
+                <div class="tips-header">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <h3>
+                        What this check does
+                    </h3>
+
+                </div>
+
+
+                <ul>
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Checks whether the vehicle is registered.
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Shows the registered resident.
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Shows Door Number.
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Shows vehicle type and details.
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Helps admins identify unknown vehicles.
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </aside>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script type="module" src="./js/vehicle-verification.js"></script>
+
+
+</body>
+
+</html>

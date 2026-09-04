@@ -1,0 +1,928 @@
+/* =========================================================
+   SMARTPARK AI - USER DASHBOARD
+   Floating Assistant
+========================================================= */
+
+.smartpark-ai-widget {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9999;
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   FLOATING LAUNCHER
+========================================================= */
+
+.smartpark-ai-launcher {
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    border: 1px solid rgba(37, 99, 235, 0.45);
+
+    background: #111827;
+
+    color: white;
+
+    padding: 9px 15px 9px 9px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.smartpark-ai-launcher:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.32);
+}
+
+
+/* =========================================================
+   AI AVATAR
+========================================================= */
+
+.smartpark-ai-avatar {
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 18px;
+}
+
+.smartpark-ai-avatar.small {
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 15px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LAUNCHER TEXT
+========================================================= */
+
+.smartpark-ai-launcher-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    line-height: 1.2;
+}
+
+.smartpark-ai-launcher-text strong {
+
+    font-size: 14px;
+}
+
+.smartpark-ai-launcher-text span {
+
+    font-size: 11px;
+
+    opacity: 0.7;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   CHAT PANEL
+========================================================= */
+
+.smartpark-ai-panel {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 370px;
+
+    height: 560px;
+
+    background: #0f172a;
+
+    border: 1px solid #26344f;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    flex-direction: column;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(15px)
+        scale(0.96);
+
+    transform-origin: bottom right;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.smartpark-ai-panel.open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.smartpark-ai-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 15px;
+
+    background: #111c32;
+
+    border-bottom: 1px solid #26344f;
+}
+
+.smartpark-ai-header-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.smartpark-ai-header-left strong {
+
+    display: block;
+
+    font-size: 14px;
+}
+
+.smartpark-ai-online {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    color: #86efac;
+}
+
+.online-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+}
+
+.smartpark-ai-close {
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #94a3b8;
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+.smartpark-ai-close:hover {
+
+    background: #1e293b;
+
+    color: white;
+}
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.smartpark-ai-messages {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.smartpark-ai-message {
+
+    display: flex;
+
+    gap: 8px;
+
+    max-width: 92%;
+}
+
+.smartpark-ai-message.user {
+
+    align-self: flex-end;
+
+    flex-direction: row-reverse;
+}
+
+.smartpark-message-icon {
+
+    width: 27px;
+    height: 27px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #1d4ed8;
+
+    color: white;
+
+    font-size: 11px;
+}
+
+.smartpark-ai-message.user
+.smartpark-message-icon {
+
+    background: #334155;
+}
+
+.smartpark-message-content {
+
+    padding: 10px 12px;
+
+    border-radius: 12px;
+
+    background: #172238;
+
+    color: #e2e8f0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.smartpark-ai-message.user
+.smartpark-message-content {
+
+    background: #2563eb;
+
+    color: white;
+}
+
+.smartpark-message-content strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 11px;
+}
+
+.smartpark-message-content p {
+
+    margin: 4px 0;
+}
+
+
+/* =========================================================
+   RESULT CARDS
+========================================================= */
+
+.smartpark-ai-result {
+
+    margin-top: 9px;
+
+    border: 1px solid #334155;
+
+    border-radius: 9px;
+
+    overflow: hidden;
+}
+
+.smartpark-ai-result-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 8px 10px;
+
+    border-bottom: 1px solid #26344f;
+
+    font-size: 12px;
+}
+
+.smartpark-ai-result-row:last-child {
+
+    border-bottom: none;
+}
+
+.smartpark-ai-result-row span {
+
+    color: #94a3b8;
+}
+
+.smartpark-ai-result-row strong {
+
+    color: white;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
+
+.smartpark-ai-quick-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    padding: 9px 12px;
+
+    border-top: 1px solid #26344f;
+
+    background: #0d1729;
+}
+
+.smartpark-ai-quick-btn {
+
+    border: 1px solid #334155;
+
+    background: #172238;
+
+    color: #bfdbfe;
+
+    border-radius: 7px;
+
+    padding: 6px 8px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+.smartpark-ai-quick-btn:hover {
+
+    background: #1e3a5f;
+
+    border-color: #3b82f6;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.smartpark-ai-input-area {
+
+    display: flex;
+
+    gap: 8px;
+
+    padding: 11px;
+
+    border-top: 1px solid #26344f;
+
+    background: #111c32;
+}
+
+.smartpark-ai-input-area input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    border: 1px solid #334155;
+
+    border-radius: 9px;
+
+    background: #0f172a;
+
+    color: white;
+
+    padding: 10px 11px;
+
+    outline: none;
+
+    font-size: 12px;
+}
+
+.smartpark-ai-input-area input:focus {
+
+    border-color: #2563eb;
+}
+
+.smartpark-ai-input-area button {
+
+    width: 40px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.smartpark-ai-input-area button:hover {
+
+    background: #1d4ed8;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .smartpark-ai-widget {
+
+        right: 12px;
+
+        bottom: 12px;
+    }
+
+    .smartpark-ai-panel {
+
+        width:
+            calc(100vw - 24px);
+
+        height:
+            min(560px, 75vh);
+    }
+
+    .smartpark-ai-launcher-text {
+
+        display: none;
+    }
+
+    .smartpark-ai-launcher {
+
+        padding: 7px;
+    }
+
+}
+/* =====================================================
+   SMARTPARK HUMAN SUPPORT
+===================================================== */
+
+.smartpark-support-entry {
+    margin-top: 10px;
+    padding: 0 2px;
+}
+
+.smartpark-support-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 12px;
+
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 10px;
+
+    background: rgba(30, 41, 59, 0.75);
+    color: #fff;
+
+    cursor: pointer;
+    text-align: left;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.smartpark-support-btn:hover {
+    transform: translateY(-1px);
+    background: rgba(37, 99, 235, 0.18);
+    border-color: rgba(59, 130, 246, 0.7);
+}
+
+.smartpark-support-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+    color: #fff;
+
+    flex-shrink: 0;
+}
+
+.smartpark-support-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    flex: 1;
+}
+
+.smartpark-support-text strong {
+    font-size: 13px;
+}
+
+.smartpark-support-text small {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+.support-unread-badge {
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: #ef4444;
+    color: #fff;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   SUPPORT CHAT WINDOW
+===================================================== */
+
+.user-support-chat {
+    position: fixed;
+
+    right: 25px;
+    bottom: 95px;
+
+    width: 360px;
+    max-width: calc(100vw - 30px);
+
+    height: 500px;
+    max-height: calc(100vh - 120px);
+
+    display: flex;
+    flex-direction: column;
+
+    background: #0f172a;
+
+    border: 1px solid rgba(59, 130, 246, 0.45);
+    border-radius: 16px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45);
+
+    overflow: hidden;
+
+    z-index: 10000;
+}
+
+
+/* HEADER */
+
+.user-support-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 13px 14px;
+
+    background: #172554;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.user-support-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-support-avatar {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+    color: white;
+}
+
+.user-support-header-info strong {
+    display: block;
+    font-size: 14px;
+}
+
+.user-support-header-info span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 10px;
+    opacity: 0.75;
+}
+
+.user-support-header-info span i {
+    color: #22c55e;
+    font-size: 7px;
+}
+
+.user-support-close {
+    border: none;
+    background: transparent;
+
+    color: white;
+
+    width: 30px;
+    height: 30px;
+
+    cursor: pointer;
+}
+
+
+/* REQUEST INFO */
+
+.user-support-request-info {
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: #111827;
+
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.user-support-request-info strong {
+    font-size: 10px;
+    opacity: 0.65;
+}
+
+.user-support-request-info span {
+    font-size: 11px;
+}
+
+#userSupportSubject {
+    flex: 1;
+}
+
+.user-support-status {
+    padding: 3px 7px;
+
+    border-radius: 10px;
+
+    background: #78350f;
+    color: #fbbf24;
+
+    font-size: 9px !important;
+}
+
+
+/* MESSAGES */
+
+.user-support-messages {
+    flex: 1;
+
+    padding: 14px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background: #f8fafc;
+}
+
+.support-loading {
+    margin: auto;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* MESSAGE */
+
+.user-support-message {
+    max-width: 82%;
+
+    padding: 9px 11px;
+
+    border-radius: 12px;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+}
+
+.user-support-message.user {
+    align-self: flex-end;
+
+    background: #2563eb;
+    color: white;
+
+    border-bottom-right-radius: 4px;
+}
+
+.user-support-message.admin {
+    align-self: flex-start;
+
+    background: white;
+    color: #1e293b;
+
+    border: 1px solid #e2e8f0;
+
+    border-bottom-left-radius: 4px;
+}
+
+.support-message-name {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    opacity: 0.7;
+}
+
+.support-message-time {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 8px;
+
+    opacity: 0.65;
+}
+
+
+/* INPUT */
+
+.user-support-input-area {
+    display: flex;
+    gap: 7px;
+
+    padding: 10px;
+
+    background: #0f172a;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+#userSupportInput {
+    flex: 1;
+
+    resize: none;
+
+    padding: 9px;
+
+    border-radius: 9px;
+
+    border: 1px solid #334155;
+
+    background: #111827;
+    color: white;
+
+    font-size: 11px;
+
+    outline: none;
+}
+
+#sendUserSupportReplyBtn {
+    align-self: flex-end;
+
+    padding: 9px 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 11px;
+}
+
+#sendUserSupportReplyBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .user-support-chat {
+        right: 10px;
+        bottom: 80px;
+
+        width: calc(100vw - 20px);
+
+        height: 70vh;
+    }
+
+}

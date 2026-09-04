@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Visitors | SmartPark AI</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Visitors Page CSS -->
+    <link rel="stylesheet" href="css/visitors.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+   <header class="page-header">
+
+    <a href="admin.html" class="back-admin-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Admin Dashboard
+    </a>
+
+    <div>
+        <h1>Visitor Management</h1>
+
+        <p>
+            Manage visitor entries, security actions and exits
+        </p>
+    </div>
+
+</header>
+
+    <!-- ================= STATISTICS ================= -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Expected</h3>
+            <span id="expectedCount">0</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Inside</h3>
+            <span id="insideCount">0</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Completed</h3>
+            <span id="completedCount">0</span>
+        </div>
+
+    </section>
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <section class="search-section">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search visitor, phone, vehicle or door...">
+
+    </section>
+
+
+    <!-- ================= VISITOR RECORDS ================= -->
+
+    <section class="visitor-records-section">
+
+        <div class="section-header">
+
+            <div>
+                <h2>
+                    <i class="fa-solid fa-users"></i>
+                    Visitor Records
+                </h2>
+
+                <p>
+                    View registered visitors and manage their security status.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Visitor cards are loaded from Firebase by visitors.js -->
+
+        <div
+            id="visitorContainer"
+            class="visitor-grid">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SECURITY ACTIONS INFO ================= -->
+
+    <section class="security-actions-section">
+
+        <h2>
+            <i class="fa-solid fa-shield-halved"></i>
+            Security Actions
+        </h2>
+
+        <p>
+            Security actions are performed directly on existing visitor records.
+        </p>
+
+        <div class="security-action-info">
+
+            <div class="security-action-item">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>Check In</span>
+            </div>
+
+            <div class="security-action-item">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Check Out</span>
+            </div>
+
+            <div class="security-action-item">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>Emergency Entry</span>
+            </div>
+
+            <div class="security-action-item">
+                <i class="fa-solid fa-user-shield"></i>
+                <span>Admin Override</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= AUDIT LOG ================= -->
+
+    <section class="audit-section">
+
+        <h2>
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            Audit Log
+        </h2>
+
+        <p>
+            Track visitor security actions, administrative actions,
+            entry methods and timestamps.
+        </p>
+
+        <div id="auditLogContainer">
+
+            <p class="empty-audit">
+                No audit records yet.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script
+    type="module"
+    src="js/visitors.js">
+</script>
+
+</body>
+
+</html>

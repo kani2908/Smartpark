@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Entry Log | SmartPark AI</title>
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- Entry Log CSS -->
+    <link
+        rel="stylesheet"
+        href="css/entry-log.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="entry-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="page-header">
+             <a href="admin.html" class="back-admin-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Admin Dashboard
+    </a>
+
+            <div>
+
+                <h1>
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+                    Entry Log
+
+                </h1>
+
+
+                <p>
+                    Track vehicle entries and exits
+                    in the parking center.
+                </p>
+
+            </div>
+
+
+            <button
+                id="refreshBtn"
+                class="refresh-btn"
+            >
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Refresh
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- TOTAL RECORDS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-list"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Total Records
+                    </span>
+
+
+                    <strong id="totalRecords">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ACTIVE -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-car-side"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Currently Parked
+                    </span>
+
+
+                    <strong id="activeRecords">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- COMPLETED -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Completed Exits
+                    </span>
+
+
+                    <strong id="completedRecords">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ENTRY LOG PANEL
+        ================================================== -->
+
+        <section class="log-panel">
+
+
+            <div class="panel-top">
+
+                <h2>
+                    Vehicle Entry & Exit History
+                </h2>
+
+
+                <p>
+                    Records are loaded directly from Firebase.
+                </p>
+
+            </div>
+
+
+
+            <!-- SEARCH + FILTER -->
+
+            <div class="toolbar">
+
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search vehicle, owner or slot..."
+                    >
+
+                </div>
+
+
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="active">
+                        Active / Parked
+                    </option>
+
+                    <option value="completed">
+                        Completed / Exited
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- LOADING -->
+
+            <div
+                id="loadingState"
+                class="loading-state"
+            >
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                Loading entry records...
+
+            </div>
+
+
+
+            <!-- EMPTY -->
+
+            <div
+                id="emptyState"
+                class="empty-state"
+                style="display:none"
+            >
+
+                <i class="fa-solid fa-file-circle-xmark"></i>
+
+
+                <h3>
+                    No Entry Records Found
+                </h3>
+
+
+                <p>
+                    No matching parking records are available.
+                </p>
+
+            </div>
+
+
+
+            <!-- TABLE -->
+
+            <div class="table-wrapper">
+
+                <table id="entryTable">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                #
+                            </th>
+
+                            <th>
+                                Vehicle
+                            </th>
+
+                            <th>
+                                Owner
+                            </th>
+
+                            <th>
+                                Slot
+                            </th>
+
+                            <th>
+                                Entry Time
+                            </th>
+
+                            <th>
+                                Exit Time
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="entryTableBody">
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="js/entry-log.js"
+    ></script>
+
+
+</body>
+
+</html>

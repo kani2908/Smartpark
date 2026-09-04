@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Security Verification | SmartPark AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/security-verification.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+
+    <header class="page-header">
+        <a href="admin.html" class="back-admin-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Admin Dashboard
+    </a>
+
+        <h1>AI Security Verification</h1>
+
+        <p>
+            Verify vehicles entering the apartment premises using AI and OTP authentication.
+        </p>
+
+    </header>
+    
+
+    <!-- Statistics -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <h4>Today's Verified</h4>
+
+            <h2 id="todayVerified">0</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Today's Visitors</h4>
+
+            <h2 id="todayVisitors">0</h2>
+
+        </div>
+
+    </section>
+
+    <!-- AI Prompt -->
+
+    <section class="search-section">
+
+        <textarea
+            id="aiPrompt"
+            rows="4"
+            placeholder="Examples:
+
+Find owner of TN22AG2005
+
+Verify vehicle TN07KP2005
+
+Is TN10AB1234 registered?"></textarea>
+
+        <button
+            id="verifyBtn"
+            class="primary-btn">
+
+            <i class="fa-solid fa-robot"></i>
+
+            Verify using AI
+
+        </button>
+
+    </section>
+
+    <!-- Verification Result -->
+
+    <section
+        id="resultContainer"
+        style="display:none;">
+
+        <div class="result-card">
+
+            <div class="result-header">
+
+                <h2>
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    AI Verification Result
+
+                </h2>
+
+                <span
+                    id="vehicleBadge"
+                    class="verified-badge">
+
+                    Waiting...
+
+                </span>
+
+            </div>
+
+            <!-- Vehicle Image -->
+
+            <div class="vehicle-image-section">
+
+                <img
+                    id="vehicleImage"
+                    src="https://placehold.co/500x300/111827/FFFFFF?text=Vehicle+Photo"
+                    alt="Vehicle Photo">
+
+            </div>
+
+            <!-- Vehicle Details -->
+
+            <div class="result-grid">
+
+                <div class="result-item">
+
+                    <label>Vehicle Number</label>
+
+                    <p id="vehicleNumber">--</p>
+
+                </div>
+
+                <div class="result-item">
+
+                    <label>Brand</label>
+
+                    <p id="vehicleBrand">--</p>
+
+                </div>
+
+                <div class="result-item">
+
+                    <label>Model</label>
+
+                    <p id="vehicleModel">--</p>
+
+                </div>
+
+                <div class="result-item">
+
+                    <label>Color</label>
+
+                    <p id="vehicleColor">--</p>
+
+                </div>
+
+                <div class="result-item">
+
+                    <label>Status</label>
+
+                    <p id="verificationStatus">--</p>
+
+                </div>
+
+            </div>
+
+            <div class="owner-hidden">
+
+                🔒 Owner details are hidden until OTP verification.
+
+            </div>
+
+            <button
+                id="sendOtpBtn"
+                class="primary-btn">
+
+                Send OTP
+
+            </button>
+            <div id="otpSection" style="display:none; margin-top:20px;">
+
+    <input
+        type="text"
+        id="otpInput"
+        placeholder="Enter 6-digit OTP"
+        maxlength="6">
+
+    <button id="verifyOtpBtn" class="primary-btn">
+        Verify OTP
+    </button>
+
+</div>
+
+<div id="ownerSection" style="display:none; margin-top:20px;">
+
+    <h3>
+        <i class="fa-solid fa-user-shield"></i>
+        Owner Details
+    </h3>
+
+    <div class="result-grid">
+
+        <div class="result-item">
+            <label>Owner Name</label>
+            <p id="ownerName">--</p>
+        </div>
+
+        <div class="result-item">
+            <label>Phone</label>
+            <p id="ownerPhone">--</p>
+        </div>
+
+        <div class="result-item">
+            <label>Door Number</label>
+            <p id="ownerDoor">--</p>
+        </div>
+
+        <div class="result-item">
+            <label>Parking Slot</label>
+            <p id="ownerSlot">--</p>
+        </div>
+
+    </div>
+
+    <!-- Entry Decision -->
+
+    <div
+        id="entryDecision"
+        style="
+            display:none;
+            margin-top:20px;
+            padding:20px;
+            border-radius:12px;
+            text-align:center;
+        "
+    >
+
+        <h2 id="entryDecisionTitle">
+            Vehicle Verified
+        </h2>
+
+        <p id="entryDecisionMessage">
+            --
+        </p>
+
+    </div>
+
+
+    <!-- Entry Buttons -->
+
+    <div
+        id="entryActions"
+        style="
+            display:none;
+            margin-top:20px;
+            gap:12px;
+        "
+    >
+
+        <button
+            id="allowEntryBtn"
+            class="primary-btn"
+            type="button"
+        >
+
+            <i class="fa-solid fa-door-open"></i>
+            Allow Entry
+
+        </button>
+
+
+        <button
+            id="denyEntryBtn"
+            class="danger-btn"
+            type="button"
+        >
+
+            <i class="fa-solid fa-ban"></i>
+            Deny Entry
+
+        </button>
+
+    </div>
+
+</div>
+
+        </div>
+
+    </section>
+
+</div>
+<!-- =============================== -->
+<!-- VEHICLE EXIT VERIFICATION -->
+<!-- =============================== -->
+
+<div class="verification-card" id="exitVerification">
+
+    <div class="section-header">
+
+        <h2>
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Vehicle Exit
+        </h2>
+
+        <p>
+            Verify the vehicle before allowing it to leave
+            the parking area.
+        </p>
+
+    </div>
+
+
+    <!-- Vehicle Number -->
+
+    <div class="form-group">
+
+        <label for="exitVehicleNumber">
+            Vehicle Number
+        </label>
+
+        <input
+            type="text"
+            id="exitVehicleNumber"
+            placeholder="Example: TN12AB8245"
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <!-- Search Button -->
+
+    <button
+        id="verifyExitBtn"
+        class="primary-btn"
+        type="button"
+    >
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        Verify Vehicle Exit
+
+    </button>
+
+
+    <!-- Exit Result -->
+
+    <div
+        id="exitResult"
+        style="display:none;"
+    >
+
+        <div class="exit-vehicle-card">
+
+            <h3>
+                <i class="fa-solid fa-car"></i>
+                Vehicle Details
+            </h3>
+
+
+            <div class="exit-details-grid">
+
+                <div class="detail-box">
+
+                    <span>Vehicle Number</span>
+
+                    <strong id="exitVehicleDisplay">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span>Owner</span>
+
+                    <strong id="exitOwnerDisplay">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span>Door Number</span>
+
+                    <strong id="exitDoorDisplay">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span>Parking Slot</span>
+
+                    <strong id="exitSlotDisplay">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span>Entry Time</span>
+
+                    <strong id="exitEntryTimeDisplay">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Exit Decision -->
+
+            <div
+                id="exitDecision"
+                class="exit-decision"
+            >
+
+                <h2 id="exitDecisionTitle">
+                    Vehicle Ready for Exit
+                </h2>
+
+                <p id="exitDecisionMessage">
+                    --
+                </p>
+
+            </div>
+
+
+            <!-- Exit Button -->
+
+            <button
+                id="allowExitBtn"
+                class="primary-btn exit-btn"
+                type="button"
+            >
+
+                <i class="fa-solid fa-door-open"></i>
+
+                Allow Vehicle Exit
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module" src="js/security-verification.js"></script>
+
+</body>
+
+</html>

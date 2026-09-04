@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Support Requests | SmartPark AI</title>
+
+
+    <!-- Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- Admin CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+
+    <!-- Support CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/admin-support.css"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+
+
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<div class="admin-main">
+
+
+    <div class="container">
+
+
+        <!-- HEADER -->
+
+        <header class="support-page-header">
+
+            <div>
+
+                <h1>
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    Support Requests
+
+                </h1>
+
+                <p>
+                    Manage help requests submitted by residents.
+                </p>
+
+            </div>
+
+
+            <button
+                id="refreshSupportBtn"
+                class="primary-btn"
+            >
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Refresh
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="support-stats">
+
+
+            <div class="support-stat-card">
+
+                <div class="support-stat-icon open">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Open Requests
+                    </span>
+
+                    <strong id="openCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="support-stat-card">
+
+                <div class="support-stat-icon progress">
+
+                    <i class="fa-solid fa-spinner"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        In Progress
+                    </span>
+
+                    <strong id="progressCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="support-stat-card">
+
+                <div class="support-stat-icon resolved">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Resolved
+                    </span>
+
+                    <strong id="resolvedCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SUPPORT REQUESTS
+        ================================================== -->
+
+        <section class="support-panel">
+
+
+            <div class="support-panel-header">
+
+                <div>
+
+                    <h2>
+                        Resident Support Requests
+                    </h2>
+
+                    <p>
+                        Review and respond to resident problems.
+                    </p>
+
+                </div>
+
+
+                <select id="supportFilter">
+
+                    <option value="all">
+                        All Requests
+                    </option>
+
+                    <option value="open">
+                        Open
+                    </option>
+
+                    <option value="in-progress">
+                        In Progress
+                    </option>
+
+                    <option value="resolved">
+                        Resolved
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- REQUEST LIST -->
+
+            <div
+                id="supportRequestsContainer"
+                class="support-requests-container"
+            >
+
+                <div class="support-loading">
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                    Loading support requests...
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     SUPPORT REPLY MODAL
+========================================================= -->
+
+<div
+    id="supportReplyModal"
+    class="support-modal"
+>
+
+
+    <div class="support-modal-content">
+
+
+        <div class="support-modal-header">
+
+            <div>
+
+                <h2>
+                    <i class="fa-solid fa-reply"></i>
+
+                    Reply to Resident
+                </h2>
+
+                <p id="replyResidentName">
+                    Resident
+                </p>
+
+            </div>
+
+
+            <button
+                id="closeReplyModal"
+                class="support-modal-close"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- REQUEST DETAILS -->
+
+        <div
+            id="replyRequestDetails"
+            class="reply-request-details"
+        >
+
+        </div>
+
+
+
+        <!-- REPLY -->
+
+        <div class="form-group">
+
+            <label for="adminReply">
+
+                Admin Reply
+
+            </label>
+
+
+            <textarea
+                id="adminReply"
+                rows="6"
+                placeholder="Write your response to the resident..."
+            ></textarea>
+
+        </div>
+
+
+
+        <!-- BUTTONS -->
+
+        <div class="support-modal-buttons">
+
+            <button
+                id="sendReplyBtn"
+                class="primary-btn"
+            >
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Send Reply
+
+            </button>
+
+
+            <button
+                id="cancelReplyBtn"
+                class="danger-btn"
+            >
+
+                Cancel
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script
+    type="module"
+    src="js/admin-support.js"
+></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+/* ==========================================================
+   VARIABLES.CSS
+   Design tokens only — colors, fonts, radius, shadows, spacing
+   No selectors, no layout rules. Everything else imports this.
+   ========================================================== */
+
+:root{
+
+    /* ---------- Backgrounds ---------- */
+    --bg-primary:#0f172a;        /* main page background (dark navy) */
+    --bg-secondary:#1e293b;      /* sidebar / header panels */
+    --bg-card:#1e293b;           /* card background */
+    --bg-card-hover:#243447;     /* card hover state */
+    --bg-input:#0f172a;          /* input field background */
+    --bg-modal:#1e293b;          /* modal background (was #fff — now dark) */
+
+    /* ---------- Borders ---------- */
+    --border-color:#334155;
+    --border-color-light:#475569;
+
+    /* ---------- Text ---------- */
+    --text-primary:#f1f5f9;      /* headings, primary content */
+    --text-secondary:#94a3b8;    /* labels, muted text */
+    --text-muted:#64748b;
+
+    /* ---------- Accent (Blue — primary brand color) ---------- */
+    --accent-blue:#2563eb;
+    --accent-blue-hover:#1d4ed8;
+    --accent-blue-light:#3b82f6;
+
+    /* ---------- Status Colors ---------- */
+    --color-success:#16a34a;     /* available / active */
+    --color-danger:#dc2626;      /* occupied / cancel */
+    --color-warning:#f59e0b;     /* cancelled */
+    --color-neutral:#64748b;     /* completed */
+
+    /* ---------- Stat Card Accents (from concept image) ---------- */
+    --stat-blue:#2563eb;
+    --stat-green:#16a34a;
+    --stat-purple:#7c3aed;
+    --stat-orange:#f59e0b;
+    --stat-teal:#0d9488;
+
+    /* ---------- Typography ---------- */
+    --font-family:'Inter', Arial, Helvetica, sans-serif;
+    --font-size-sm:13px;
+    --font-size-base:15px;
+    --font-size-md:16px;
+    --font-size-lg:20px;
+    --font-size-xl:28px;
+
+    /* ---------- Radius ---------- */
+    --radius-sm:6px;
+    --radius-md:10px;
+    --radius-lg:15px;
+    --radius-pill:20px;
+
+    /* ---------- Shadows ---------- */
+    --shadow-sm:0 2px 5px rgba(0,0,0,.15);
+    --shadow-md:0 8px 18px rgba(0,0,0,.25);
+    --shadow-lg:0 12px 24px rgba(0,0,0,.35);
+    --shadow-modal:0 10px 25px rgba(0,0,0,.4);
+
+    /* ---------- Spacing ---------- */
+    --space-xs:8px;
+    --space-sm:10px;
+    --space-md:20px;
+    --space-lg:30px;
+
+    /* ---------- Transitions ---------- */
+    --transition-fast:.2s ease;
+    --transition-base:.3s ease;
+
+}
